@@ -31,7 +31,7 @@ export default function HeroCountdown() {
         <div className="text-center">
           <div className="mx-auto max-w-2xl">
             
-            <p className="text-xl font-semibold mb-8">
+            <p className="text-xl font-semibold mb-4">
               <span className="text-white">BMSCE IEEE Computer Society</span>
               <span className="text-green-300 ml-2">presents</span>
             </p>
@@ -45,8 +45,6 @@ export default function HeroCountdown() {
               priority // Load this image first
             />
             
-            {/* --- THIS IS THE FIX --- */}
-            {/* Added 'max-w-lg' and 'mx-auto' to make the box shorter */}
             <div className="mt-10 rounded-lg border border-green-800/30 pt-6 pb-8 px-6 backdrop-blur-sm bg-black/10 max-w-lg mx-auto">
               <p className="text-xl text-green-200">Starts in</p>
 
@@ -88,19 +86,18 @@ export default function HeroCountdown() {
                 </div>
               )}
             </div>
-            {/* --- END OF NEW BOX --- */}
 
 
             <div className="mt-10 flex gap-4 justify-center">
               <a 
                 href="#register" 
-                className="px-6 py-3 text-lg rounded-md bg-gradient-to-r from-green-500 to-green-400 text-black font-semibold shadow-lg hover:scale-[1.02] transition-transform animate-neon-glow"
+                className="cursor-target px-6 py-3 text-lg rounded-md bg-gradient-to-r from-green-500 to-green-400 text-black font-semibold shadow-lg hover:scale-[1.02] transition-transform animate-neon-glow"
               >
                 Register Now
               </a>
               <a 
                 href="#highlights" 
-                className="px-6 py-3 text-lg rounded-md border border-green-700 text-green-200 hover:bg-green-900/30 transition-colors"
+                className="cursor-target px-6 py-3 text-lg rounded-md border border-green-700 text-green-200 hover:bg-green-900/30 transition-colors"
               >
                 Learn more
               </a>
