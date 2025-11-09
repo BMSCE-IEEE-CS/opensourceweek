@@ -8,17 +8,19 @@ const highlights = [
   { title: "Workshops (Day 2)", desc: "GitHub 101 • Agentic AI Unpacked" },
   { title: "Contribution Sprint (Day 3)", desc: "Mentored sprint to submit issues, fixes and features (virtual available)." },
   { title: "RepoGenesis — 24-Hour Hackathon (Days 4-5)", desc: "Teams build open-source solutions with mentorship & checkpoints." },
-  { title: "Retro-Tech Exhibit (All Week)", desc: "Hands-on vintage languages & hardware showcase." },
+  // "Retro-Tech Exhibit" object removed from here
 ];
 
 export default function EventHighlights() {
   return (
-    <section id="highlights" className="py-16 bg-black">
+    // --- Background class removed ---
+    <section id="highlights" className="py-16">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-3xl font-extrabold text-white mb-8 text-center md:text-left">
           Event Highlights
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* The grid will now auto-adjust to 4 items */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {highlights.map((h, i) => (
             <motion.article 
               key={h.title} 
