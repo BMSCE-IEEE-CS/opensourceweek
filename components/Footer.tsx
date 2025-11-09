@@ -69,18 +69,17 @@ export default function Footer() {
           <div className="mt-3 space-y-4">
             <div>
               <div className="text-green-300 font-medium">Vageesh</div>
-              <div className="text-xs text-neutral-400">Chairperson
-              BMSCE IEEE Computer Society</div>
-              <a href="tel:+919999999999" className="text-xs text-neutral-400 hover:text-white">+91 73386 52387</a>
+              <div className="text-xs text-neutral-400">Chairperson</div>
+              <div className="text-xs text-neutral-400">BMSCE IEEE Computer Society</div>
+              <a href="tel:+917338652387" className="text-xs text-neutral-400 hover:text-white">+91 73386 52387</a>
             </div>
             <div>
               <div className="text-green-300 font-medium">Rishika</div>
-              <div className="text-xs text-neutral-400">Treasurer
-              BMSCE IEEE Computer Society</div>
-              <a href="mailto:ananya@bmsce.edu" className="text-xs text-neutral-400 hover:text-white">+91 97428 13610</a>
+              <div className="text-xs text-neutral-400">Treasurer</div>
+              <div className="text-xs text-neutral-400">BMSCE IEEE Computer Society</div>
+              <a href="tel:+919742813610" className="text-xs text-neutral-400 hover:text-white">+91 97428 13610</a>
             </div>
             
-            {/* --- ADDED THIS BLOCK --- */}
             <div>
               <div className="text-green-300 font-medium">Mail</div>
               <a 
@@ -90,7 +89,6 @@ export default function Footer() {
                 ieee.cs@bmsce.ac.in
               </a>
             </div>
-            {/* --- END OF ADDED BLOCK --- */}
 
           </div>
         </div>
@@ -99,15 +97,17 @@ export default function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-3">Location</h4>
           <div className="w-full h-48 rounded-md overflow-hidden border border-green-900/30">
+            {/* --- THIS IS THE FIX --- */}
             <iframe
               title="BMSCE Location"
-              src="http://googleusercontent.com/maps.google.com/7"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.514787491745!2d77.5632215152864!3d12.938914090877505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae159306153c9b%3A0x68328616148318e!2sBMS%20College%20of%20Engineering!5e0!3m2!1sen!2sin"
               className="w-full h-full"
               style={{ border: 0 }}
-              allowFullScreen={false}
+              allowFullScreen={true}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
+            {/* --- END OF FIX --- */}
           </div>
           <p className="text-xs text-neutral-400 mt-2">
             BMS College of Engineering, Bull Temple Rd, Basavanagudi, Bengaluru, KA 560019
