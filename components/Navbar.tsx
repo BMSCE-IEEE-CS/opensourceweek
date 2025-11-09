@@ -16,8 +16,8 @@ export default function Navbar() {
               <Image 
                 src="/club-logo.png" 
                 alt="BMSCE IEEE CS Logo" 
-                width={70} 
-                height={70} 
+                width={85} 
+                height={85} 
               />
               {/* 2. Removed the span text */}
             </div>
