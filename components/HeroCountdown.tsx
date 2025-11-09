@@ -26,14 +26,17 @@ export default function HeroCountdown() {
   const isStarted = diff <= 0;
 
   return (
-    <section id="home" className="min-h-[70vh] flex items-center justify-center py-16">
+    // --- THIS IS THE FIX ---
+    // Changed min-h-[70vh] to min-h-[65vh] to move content up
+    <section id="home" className="min-h-[65vh] flex items-center justify-center">
+      {/* Removed redundant padding py-16 from section */}
       <div className="max-w-6xl w-full px-6 py-12 flex items-center justify-center">
         <div className="text-center">
-          {/* 1. Increased max-width from lg to 2xl */}
+          {/* Increased max-width from lg to 2xl */}
           <div className="mx-auto max-w-2xl">
             
-            {/* 2. Increased text from lg to xl */}
-            <p className="text-xl font-semibold mb-8">
+            {/* Increased text from lg to xl */}
+            <p className="text-xl font-semibold mb-4">
               <span className="text-white">BMSCE IEEE Computer Society</span>
               <span className="text-green-300 ml-2">presents</span>
             </p>
@@ -47,7 +50,7 @@ export default function HeroCountdown() {
               priority // Load this image first
             />
             
-            {/* 3. Increased text from lg to xl and margin-top */}
+            {/* Increased text from lg to xl and margin-top */}
             <p className="mt-10 text-xl text-green-200">Starts in</p>
 
             {isStarted ? (
@@ -59,7 +62,7 @@ export default function HeroCountdown() {
                 It’s happening now 🚀
               </motion.div>
             ) : (
-              // 4. Increased margin-top, gap, and text sizes
+              // Increased margin-top, gap, and text sizes
               <div className="mt-6 flex gap-4 justify-center">
                 {[
                   { label: "Days", value: days },
@@ -89,7 +92,7 @@ export default function HeroCountdown() {
               </div>
             )}
 
-            {/* 5. Increased margin-top, gap, and button/text sizes */}
+            {/* Increased margin-top, gap, and button/text sizes */}
             <div className="mt-10 flex gap-4 justify-center">
               <a 
                 href="#register" 
