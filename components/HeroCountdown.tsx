@@ -31,10 +31,7 @@ export default function HeroCountdown() {
         <div className="text-center">
           <div className="mx-auto max-w-2xl">
             
-            <p className="text-xl font-semibold mb-4">
-              <span className="text-white">BMSCE IEEE Computer Society</span>
-              <span className="text-green-300 ml-2">presents</span>
-            </p>
+            {/* --- "Presents" text removed from here --- */}
 
             <Image 
               src="/title.png" 
@@ -45,18 +42,19 @@ export default function HeroCountdown() {
               priority // Load this image first
             />
             
-            <div className="mt-10 rounded-lg border border-green-800/30 pt-6 pb-8 px-6 backdrop-blur-sm bg-black/10 max-w-lg mx-auto">
-              <p className="text-xl text-green-200">Starts in</p>
+            <p className="mt-10 text-xl text-green-200">Starts in</p>
 
-              {isStarted ? (
-                <motion.div 
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="mt-6 text-3xl md:text-5xl text-white font-semibold"
-                >
-                  It’s happening now 🚀
-                </motion.div>
-              ) : (
+            {isStarted ? (
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="mt-6 text-3xl md:text-5xl text-white font-semibold"
+              >
+                It’s happening now 🚀
+              </motion.div>
+            ) : (
+              <div className="mt-10 rounded-lg border border-green-800/30 pt-6 pb-8 px-6 backdrop-blur-sm bg-black/10 max-w-lg mx-auto">
+                <p className="text-xl text-green-200">Starts in</p>
                 <div className="mt-6 flex gap-4 justify-center">
                   {[
                     { label: "Days", value: days },
@@ -84,8 +82,8 @@ export default function HeroCountdown() {
                     </motion.div>
                   ))}
                 </div>
-              )}
-            </div>
+              </div>
+            )}
 
 
             <div className="mt-10 flex gap-4 justify-center">
