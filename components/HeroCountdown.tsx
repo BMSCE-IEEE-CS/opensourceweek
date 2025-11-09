@@ -31,12 +31,12 @@ export default function HeroCountdown() {
         <div className="text-center">
           <div className="mx-auto max-w-lg">
             
-            {/* --- THIS IS THE NEW TEXT YOU REQUESTED --- */}
-            <p className="text-lg font-semibold mb-2">
+            {/* --- THIS IS THE FIX --- */}
+            {/* Changed mb-2 to mb-4 to add space */}
+            <p className="text-lg font-semibold mb-4">
               <span className="text-white">BMSCE IEEE Computer Society</span>
               <span className="text-green-300 ml-2">presents</span>
             </p>
-            {/* --- END OF NEW TEXT --- */}
 
             <Image 
               src="/title.png" 
@@ -46,7 +46,10 @@ export default function HeroCountdown() {
               className="mx-auto"
               priority // Load this image first
             />
-            <p className="mt-4 text-lg text-green-200">Starts in</p>
+            
+            {/* --- THIS IS THE OTHER FIX --- */}
+            {/* Changed mt-4 to mt-8 to add space */}
+            <p className="mt-8 text-lg text-green-200">Starts in</p>
 
             {isStarted ? (
               <motion.div 
