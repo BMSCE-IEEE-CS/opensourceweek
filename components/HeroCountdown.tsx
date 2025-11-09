@@ -31,8 +31,6 @@ export default function HeroCountdown() {
         <div className="text-center">
           <div className="mx-auto max-w-2xl">
             
-            {/* "Presents" text removed */}
-
             <Image 
               src="/title.png" 
               alt="Open Source Week" 
@@ -42,8 +40,6 @@ export default function HeroCountdown() {
               priority // Load this image first
             />
             
-            {/* --- "STARTS IN" TEXT REMOVED FROM HERE --- */}
-
             {isStarted ? (
               <motion.div 
                 initial={{ opacity: 0 }}
@@ -53,7 +49,6 @@ export default function HeroCountdown() {
                 It’s happening now 🚀
               </motion.div>
             ) : (
-              // This box contains the "Starts in" text
               <div className="mt-10 rounded-lg border border-green-800/30 pt-6 pb-8 px-6 backdrop-blur-sm bg-black/10 max-w-lg mx-auto">
                 <p className="text-xl text-green-200">Starts in</p>
                 <div className="mt-6 flex gap-4 justify-center">
@@ -90,7 +85,8 @@ export default function HeroCountdown() {
             <div className="mt-10 flex gap-4 justify-center">
               <a 
                 href="#register" 
-                className="cursor-target px-6 py-3 text-lg rounded-md bg-gradient-to-r from-green-500 to-green-400 text-black font-semibold shadow-lg hover:scale-[1.02] transition-transform animate-neon-glow"
+                // --- THIS IS THE FIX ---
+                className="cursor-target px-6 py-3 text-lg rounded-md bg-gradient-to-r from-green-500 to-green-400 text-black font-semibold shadow-lg hover:scale-[1.02] transition-transform hover:animate-neon-glow"
               >
                 Register Now
               </a>
