@@ -1,6 +1,8 @@
 "use client";
+
 import React, { useEffect, useRef, useState } from "react";
-import { easeOut, motion, useReducedMotion } from "framer-motion";
+// Import Variants, which was missing for the build fix
+import { easeOut, motion, useReducedMotion, Variants } from "framer-motion";
 
 type Item = {
   id: string;
@@ -95,7 +97,7 @@ export default function Timeline() {
     <section
       id="schedule"
       ref={containerRef}
-      className="py-16 bg-black overflow-x-hidden"
+      className="py-16 overflow-x-hidden" // Removed bg-black
     >
       <div className="max-w-4xl mx-auto px-6 relative">
         <h2 className="text-3xl font-extrabold text-white mb-12 text-center">
@@ -134,8 +136,8 @@ export default function Timeline() {
             {TIMELINE.map((item, idx) => {
               const side = item.side;
 
-              // Animation variants
-              const itemVariants = {
+              // --- BUILD FIX: Added 'Variants' type ---
+              const itemVariants: Variants = {
                 hidden: {
                   opacity: 0,
                   x: shouldReduceMotion ? 0 : side === "left" ? -30 : 30,
@@ -145,19 +147,20 @@ export default function Timeline() {
                   x: 0,
                   transition: {
                     duration: 0.4,
-                    ease: easeOut, // ✅ use imported easing function
+                    ease: easeOut, // ✅ Use imported function
                   },
                 },
               };
 
-              const mobileItemVariants = {
+              // --- BUILD FIX: Added 'Variants' type ---
+              const mobileItemVariants: Variants = {
                 hidden: { opacity: 0, x: shouldReduceMotion ? 0 : 20 },
                 visible: {
                   opacity: 1,
                   x: 0,
                   transition: {
                     duration: 0.4,
-                    ease: easeOut, // ✅ same fix here
+                    ease: easeOut, // ✅ Use imported function
                   },
                 },
               };
@@ -171,6 +174,14 @@ export default function Timeline() {
                   data-id={item.id}
                   className="relative md:grid md:grid-cols-2 md:items-start md:gap-8"
                 >
+                  
+                  {/* --- NEW STATIC CIRCLE --- */}
+                  <div 
+                    className="hidden md:block absolute left-1/2 top-2 -translate-x-1/2 w-4 h-4 rounded-full bg-black border-2 border-green-600" 
+                    aria-hidden="true" 
+                  />
+                  {/* --- END OF NEW CIRCLE --- */}
+                  
                   {/* --- DESKTOP VIEW --- */}
                   {side === "left" ? (
                     <motion.div
