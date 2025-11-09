@@ -33,7 +33,7 @@ export default function HeroCountdown() {
             
             {/* --- THIS IS THE FIX --- */}
             {/* Changed mb-2 to mb-4 to add space */}
-            <p className="text-lg font-semibold mb-4">
+            <p className="text-lg font-semibold mb-8">
               <span className="text-white">BMSCE IEEE Computer Society</span>
               <span className="text-green-300 ml-2">presents</span>
             </p>
@@ -49,7 +49,7 @@ export default function HeroCountdown() {
             
             {/* --- THIS IS THE OTHER FIX --- */}
             {/* Changed mt-4 to mt-8 to add space */}
-            <p className="mt-8 text-lg text-green-200">Starts in</p>
+            <p className="mt-12 text-lg text-green-200">Starts in</p>
 
             {isStarted ? (
               <motion.div 
