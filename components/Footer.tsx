@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -17,7 +16,7 @@ export default function Footer() {
           
           <div className="flex gap-4 mt-4">
             <a 
-              href="https://www.instagram.com/bmsce_ieeecs/"
+              href="https://www.instagram.com/bmsce_ieeecs/" // <-- Edit this link
               target="_blank" 
               rel="noopener noreferrer" 
               aria-label="Instagram"
@@ -32,7 +31,7 @@ export default function Footer() {
               </svg>
             </a>
             <a 
-              href="https://www.linkedin.com/company/bmsce-ieee-computer-society/"
+              href="https://www.linkedin.com/company/bmsce-ieee-computer-society/" // <-- Edit this link
               target="_blank" 
               rel="noopener noreferrer" 
               aria-label="LinkedIn"
@@ -47,7 +46,7 @@ export default function Footer() {
               </svg>
             </a>
             <a 
-              href="https://github.com/BMSCE-IEEE-CS"
+              href="https://github.com/BMSCE-IEEE-CS" // <-- Edit this link
               target="_blank" 
               rel="noopener noreferrer" 
               aria-label="GitHub"
@@ -62,15 +61,6 @@ export default function Footer() {
               </svg>
             </a>
           </div>
-
-          <Image 
-            src="/club-logo.png"
-            alt="BMSCE IEEE CS Logo"
-            width={80}
-            height={80}
-            className="mt-6"
-          />
-
         </div>
 
         {/* Column 2: Contacts */}
@@ -108,10 +98,10 @@ export default function Footer() {
           <h4 className="text-white font-semibold mb-3">Location</h4>
           <div className="w-full h-48 rounded-md overflow-hidden border border-green-900/30">
             {/* --- THIS IS THE FIX --- */}
-            {/* This is the real, working embed link */}
+            {/* I've used the real embed link for BMSCE */}
             <iframe
               title="BMSCE Location"
-              src="maps.google.com/8"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.358525164102!2d77.56372677580103!3d12.94888128736345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae158b16f21201%3A0x1da006d336d6c6f1!2sBMS%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1730999086001!5m2!1sen!2sin1"
               className="w-full h-full"
               style={{ border: 0 }}
               allowFullScreen={true}
