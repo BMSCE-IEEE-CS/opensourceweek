@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-// Import Variants, which was missing for the build fix
 import { easeOut, motion, useReducedMotion, Variants } from "framer-motion";
 
 type Item = {
@@ -53,13 +52,7 @@ const TIMELINE: Item[] = [
       { id: "rg4", title: "Final Demo & Judging", time: "Day 5 - 11:00 AM" },
     ],
   },
-  {
-    id: "retro",
-    title: "Retro-Tech Exhibit",
-    time: "All Week",
-    desc: "Vintage languages & hardware.",
-    side: "left",
-  },
+  // "Retro-Tech Exhibit" object removed from here
 ];
 
 export default function Timeline() {
