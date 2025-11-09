@@ -8,14 +8,12 @@ export default function Footer() {
         
         {/* Column 1: Club Info & Socials */}
         <div>
-          {/* 1. Added "Open Source Week" title */}
           <h3 className="text-lg font-bold text-white mb-2">Open Source Week</h3>
           <h4 className="text-white font-semibold">BMSCE IEEE Computer Society</h4>
           <p className="text-xs text-neutral-400 mt-2">
             Fostering innovation and technical excellence.
           </p>
           
-          {/* 2. Added Social Media Icons */}
           <div className="flex gap-4 mt-4">
             <a 
               href="https://www.instagram.com/YOUR_HANDLE" // <-- Edit this link
@@ -68,7 +66,7 @@ export default function Footer() {
         {/* Column 2: Contacts */}
         <div>
           <h4 className="text-white font-semibold">Contact Us</h4>
-          <div className="mt-3 space-y-3">
+          <div className="mt-3 space-y-4">
             <div>
               <div className="text-green-300 font-medium">Vaibhav Reddy</div>
               <div className="text-xs text-neutral-400">Event Coordinator</div>
@@ -79,6 +77,19 @@ export default function Footer() {
               <div className="text-xs text-neutral-400">Logistics Head</div>
               <a href="mailto:ananya@bmsce.edu" className="text-xs text-neutral-400 hover:text-white">ananya@bmsce.edu</a>
             </div>
+            
+            {/* --- ADDED THIS BLOCK --- */}
+            <div>
+              <div className="text-green-300 font-medium">General Inquiries</div>
+              <a 
+                href="mailto:ieee.cs@bmsce.ac.in" 
+                className="text-xs text-neutral-400 hover:text-white"
+              >
+                ieee.cs@bmsce.ac.in
+              </a>
+            </div>
+            {/* --- END OF ADDED BLOCK --- */}
+
           </div>
         </div>
 
@@ -88,7 +99,7 @@ export default function Footer() {
           <div className="w-full h-48 rounded-md overflow-hidden border border-green-900/30">
             <iframe
               title="BMSCE Location"
-              src="http://googleusercontent.com/maps.google.com/5"
+              src="http://googleusercontent.com/maps.google.com/7"
               className="w-full h-full"
               style={{ border: 0 }}
               allowFullScreen={false}
