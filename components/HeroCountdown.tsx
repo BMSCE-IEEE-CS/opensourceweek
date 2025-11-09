@@ -31,7 +31,7 @@ export default function HeroCountdown() {
         <div className="text-center">
           <div className="mx-auto max-w-2xl">
             
-            {/* --- "Presents" text removed from here --- */}
+            {/* "Presents" text removed */}
 
             <Image 
               src="/title.png" 
@@ -42,17 +42,18 @@ export default function HeroCountdown() {
               priority // Load this image first
             />
             
-            <p className="mt-10 text-xl text-green-200">Starts in</p>
+            {/* --- "STARTS IN" TEXT REMOVED FROM HERE --- */}
 
             {isStarted ? (
               <motion.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="mt-6 text-3xl md:text-5xl text-white font-semibold"
+                className="mt-10 text-3xl md:text-5xl text-white font-semibold"
               >
                 It’s happening now 🚀
               </motion.div>
             ) : (
+              // This box contains the "Starts in" text
               <div className="mt-10 rounded-lg border border-green-800/30 pt-6 pb-8 px-6 backdrop-blur-sm bg-black/10 max-w-lg mx-auto">
                 <p className="text-xl text-green-200">Starts in</p>
                 <div className="mt-6 flex gap-4 justify-center">
