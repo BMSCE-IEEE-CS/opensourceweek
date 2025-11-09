@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image"; // <-- 1. IMPORT IMAGE
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -63,15 +63,13 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* --- 2. ADDED IMAGE HERE --- */}
           <Image 
             src="/club-logo.png"
             alt="BMSCE IEEE CS Logo"
-            width={80} // A bit larger for the footer
+            width={80}
             height={80}
-            className="mt-6" // Add margin-top
+            className="mt-6"
           />
-          {/* --- END OF ADDED IMAGE --- */}
 
         </div>
 
@@ -109,15 +107,18 @@ export default function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-3">Location</h4>
           <div className="w-full h-48 rounded-md overflow-hidden border border-green-900/30">
+            {/* --- THIS IS THE FIX --- */}
+            {/* This is the real, working embed link */}
             <iframe
               title="BMSCE Location"
-              src="http://googleusercontent.com/maps/google.com/13"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.487818408272!2d77.56372877590827!3d12.94060888736932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae158b11e445f3%3A0x10126b1c8f36b6f3!2sBMS%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1730871952391!5m2!1sen!2sin"
               className="w-full h-full"
               style={{ border: 0 }}
               allowFullScreen={true}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
+            {/* --- END OF FIX --- */}
           </div>
           <p className="text-xs text-neutral-400 mt-2">
             BMS College of Engineering, Bull Temple Rd, Basavanagudi, Bengaluru, KA 560019
