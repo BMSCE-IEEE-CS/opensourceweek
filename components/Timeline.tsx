@@ -138,7 +138,7 @@ export default function Timeline() {
                   x: 0,
                   transition: {
                     duration: 0.4,
-                    ease: easeOut, 
+                    ease: easeOut,
                   },
                 },
               };
@@ -164,12 +164,11 @@ export default function Timeline() {
                   data-id={item.id}
                   className="relative md:grid md:grid-cols-2 md:items-start md:gap-8"
                 >
-                  
-                  <div 
-                    className="hidden md:block absolute left-1/2 top-2 -translate-x-1/2 w-4 h-4 rounded-full bg-black border-2 border-green-600" 
-                    aria-hidden="true" 
+                  <div
+                    className="hidden md:block absolute left-1/2 top-2 -translate-x-1/2 w-4 h-4 rounded-full bg-black border-2 border-green-600"
+                    aria-hidden="true"
                   />
-                  
+
                   {/* --- DESKTOP VIEW --- */}
                   {side === "left" ? (
                     <motion.div
@@ -228,7 +227,7 @@ export default function Timeline() {
 // Helper component for the card content
 const TimelineCard = ({ item }: { item: Item }) => (
   // --- ADDED CURSOR-TARGET HERE ---
-  <div className="cursor-target bg-neutral-900/40 border border-green-900/30 p-4 rounded-lg shadow-md">
+  <div className="cursor-target bg-neutral-600/40 border border-green-900/30 p-4 rounded-lg shadow-md">
     <div className="text-base font-semibold text-green-300">{item.title}</div>
     <div className="text-xs text-neutral-400 mt-1">{item.time}</div>
     {item.desc && <p className="text-sm text-neutral-300 mt-2">{item.desc}</p>}
