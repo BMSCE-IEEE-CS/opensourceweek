@@ -6,39 +6,42 @@ export default function Footer() {
     <footer className="bg-neutral-950 border-t border-green-900/20 text-sm text-neutral-300">
       <div className="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-10">
         
-        {/* Column 1: Club Info & Links */}
+        {/* Column 1: Club Info & Socials */}
         <div>
           <h4 className="text-white font-semibold">BMSCE IEEE Computer Society</h4>
           <p className="text-xs text-neutral-400 mt-2">
             Fostering innovation and technical excellence.
           </p>
+          {/* --- ADDED SOCIALS HERE --- */}
           <div className="flex gap-4 mt-4">
-             {/* Add social links here if you have them */}
-             {/* <a href="#" aria-label="LinkedIn">...</a> */}
-             {/* <a href="#" aria-label="Instagram">...</a> */}
+            <a 
+              href="https://www.instagram.com/YOUR_HANDLE" // <-- Edit this link
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-xs text-neutral-400 hover:text-white"
+            >
+              Instagram
+            </a>
+            <a 
+              href="https://www.linkedin.com/company/YOUR_HANDLE" // <-- Edit this link
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-xs text-neutral-400 hover:text-white"
+            >
+              LinkedIn
+            </a>
+            <a 
+              href="https://github.com/YOUR_HANDLE" // <-- Edit this link
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-xs text-neutral-400 hover:text-white"
+            >
+              GitHub
+            </a>
           </div>
         </div>
 
-        {/* Column 2: Location */}
-        <div>
-          <h4 className="text-white font-semibold mb-3">Location</h4>
-          <div className="w-full h-48 rounded-md overflow-hidden border border-green-900/30">
-            <iframe
-              title="BMSCE Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.358525164102!2d77.56372677580103!3d12.94888128736345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae158b16f21201%3A0x1da006d336d6c6f1!2sBMS%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1730999086001!5m2!1sen!2sin"
-              className="w-full h-full"
-              style={{ border: 0 }}
-              allowFullScreen={false}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-          <p className="text-xs text-neutral-400 mt-2">
-            BMS College of Engineering, Bull Temple Rd, Basavanagudi, Bengaluru, KA 560019
-          </p>
-        </div>
-        
-        {/* Column 3: Contacts */}
+        {/* Column 2: Contacts (Moved from Col 3) */}
         <div>
           <h4 className="text-white font-semibold">Contact Us</h4>
           <div className="mt-3 space-y-3">
@@ -53,6 +56,25 @@ export default function Footer() {
               <a href="mailto:ananya@bmsce.edu" className="text-xs text-neutral-400 hover:text-white">ananya@bmsce.edu</a>
             </div>
           </div>
+        </div>
+
+        {/* Column 3: Location (Moved from Col 2) */}
+        <div>
+          <h4 className="text-white font-semibold mb-3">Location</h4>
+          <div className="w-full h-48 rounded-md overflow-hidden border border-green-900/30">
+            <iframe
+              title="BMSCE Location"
+              src="http://googleusercontent.com/maps.google.com/4"
+              className="w-full h-full"
+              style={{ border: 0 }}
+              allowFullScreen={false}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <p className="text-xs text-neutral-400 mt-2">
+            BMS College of Engineering, Bull Temple Rd, Basavanagudi, Bengaluru, KA 560019
+          </p>
         </div>
 
       </div>
