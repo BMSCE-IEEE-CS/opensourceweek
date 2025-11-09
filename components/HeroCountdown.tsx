@@ -27,14 +27,17 @@ export default function HeroCountdown() {
 
   return (
     <section id="home" className="min-h-[70vh] flex items-center justify-center py-16">
-      {/* This parent div is now set to center its content,
-        since there's only one column.
-      */}
       <div className="max-w-6xl w-full px-6 py-12 flex items-center justify-center">
-        {/* This is the main content column, now centered.
-        */}
         <div className="text-center">
           <div className="mx-auto max-w-lg">
+            
+            {/* --- THIS IS THE NEW TEXT YOU REQUESTED --- */}
+            <p className="text-lg font-semibold mb-2">
+              <span className="text-white">BMSCE IEEE Computer Society</span>
+              <span className="text-green-300 ml-2">presents</span>
+            </p>
+            {/* --- END OF NEW TEXT --- */}
+
             <Image 
               src="/title.png" 
               alt="Open Source Week" 
@@ -54,7 +57,6 @@ export default function HeroCountdown() {
                 It’s happening now 🚀
               </motion.div>
             ) : (
-              // This div is now centered with 'justify-center'
               <div className="mt-4 flex gap-3 justify-center">
                 {[
                   { label: "Days", value: days },
@@ -84,7 +86,6 @@ export default function HeroCountdown() {
               </div>
             )}
 
-            {/* This div is now centered with 'justify-center' */}
             <div className="mt-8 flex gap-3 justify-center">
               <a 
                 href="#register" 
@@ -102,10 +103,6 @@ export default function HeroCountdown() {
           </div>
         </div>
 
-        {/* THIS IS THE BOX I REMOVED.
-          The entire "flex-1 w-full" div that contained
-          the floating card is now gone.
-        */}
       </div>
     </section>
   );
