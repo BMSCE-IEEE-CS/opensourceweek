@@ -12,10 +12,8 @@ const highlights = [
 
 export default function EventHighlights() {
   return (
-    // 1. Re-added 'bg-black' to the section
     <section id="highlights" className="py-16 bg-black">
       <div className="max-w-6xl mx-auto px-6">
-        {/* 2. Removed 'md:text-left' to center the title */}
         <h2 className="text-3xl font-extrabold text-white mb-8 text-center">
           Event Highlights
         </h2>
@@ -27,7 +25,8 @@ export default function EventHighlights() {
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true, amount: 0.3 }}
               transition={{ delay: i * 0.06, ease: "easeOut" }} 
-              className="p-6 rounded-xl border border-green-900/30 bg-gradient-to-b from-neutral-900/40 to-black/20"
+              // --- ADDED CURSOR-TARGET HERE ---
+              className="cursor-target p-6 rounded-xl border border-green-900/30 bg-gradient-to-b from-neutral-900/40 to-black/20"
             >
               <h3 className="text-lg font-semibold text-green-300">{h.title}</h3>
               <p className="text-sm text-neutral-300 mt-2">{h.desc}</p>
