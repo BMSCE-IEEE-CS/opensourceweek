@@ -52,7 +52,6 @@ const TIMELINE: Item[] = [
       { id: "rg4", title: "Final Demo & Judging", time: "Day 5 - 11:00 AM" },
     ],
   },
-  // "Retro-Tech Exhibit" object removed from here
 ];
 
 export default function Timeline() {
@@ -129,7 +128,6 @@ export default function Timeline() {
             {TIMELINE.map((item, idx) => {
               const side = item.side;
 
-              // --- BUILD FIX: Added 'Variants' type ---
               const itemVariants: Variants = {
                 hidden: {
                   opacity: 0,
@@ -140,12 +138,11 @@ export default function Timeline() {
                   x: 0,
                   transition: {
                     duration: 0.4,
-                    ease: easeOut, // ✅ Use imported function
+                    ease: easeOut, 
                   },
                 },
               };
 
-              // --- BUILD FIX: Added 'Variants' type ---
               const mobileItemVariants: Variants = {
                 hidden: { opacity: 0, x: shouldReduceMotion ? 0 : 20 },
                 visible: {
@@ -153,7 +150,7 @@ export default function Timeline() {
                   x: 0,
                   transition: {
                     duration: 0.4,
-                    ease: easeOut, // ✅ Use imported function
+                    ease: easeOut,
                   },
                 },
               };
@@ -168,12 +165,10 @@ export default function Timeline() {
                   className="relative md:grid md:grid-cols-2 md:items-start md:gap-8"
                 >
                   
-                  {/* --- NEW STATIC CIRCLE --- */}
                   <div 
                     className="hidden md:block absolute left-1/2 top-2 -translate-x-1/2 w-4 h-4 rounded-full bg-black border-2 border-green-600" 
                     aria-hidden="true" 
                   />
-                  {/* --- END OF NEW CIRCLE --- */}
                   
                   {/* --- DESKTOP VIEW --- */}
                   {side === "left" ? (
@@ -232,7 +227,8 @@ export default function Timeline() {
 
 // Helper component for the card content
 const TimelineCard = ({ item }: { item: Item }) => (
-  <div className="bg-neutral-900/40 border border-green-900/30 p-4 rounded-lg shadow-md">
+  // --- ADDED CURSOR-TARGET HERE ---
+  <div className="cursor-target bg-neutral-900/40 border border-green-900/30 p-4 rounded-lg shadow-md">
     <div className="text-base font-semibold text-green-300">{item.title}</div>
     <div className="text-xs text-neutral-400 mt-1">{item.time}</div>
     {item.desc && <p className="text-sm text-neutral-300 mt-2">{item.desc}</p>}
