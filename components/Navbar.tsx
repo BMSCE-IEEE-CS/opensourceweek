@@ -15,8 +15,8 @@ export default function Navbar() {
               <Image 
                 src="/club-logo.png" 
                 alt="BMSCE IEEE CS Logo" 
-                width={56} 
-                height={56} 
+                width={100} 
+                height={100} 
               />
             </div>
           </Link>
