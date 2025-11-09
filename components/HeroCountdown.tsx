@@ -29,11 +29,11 @@ export default function HeroCountdown() {
     <section id="home" className="min-h-[70vh] flex items-center justify-center py-16">
       <div className="max-w-6xl w-full px-6 py-12 flex items-center justify-center">
         <div className="text-center">
-          <div className="mx-auto max-w-lg">
+          {/* 1. Increased max-width from lg to 2xl */}
+          <div className="mx-auto max-w-2xl">
             
-            {/* --- THIS IS THE FIX --- */}
-            {/* Changed mb-2 to mb-4 to add space */}
-            <p className="text-lg font-semibold mb-8">
+            {/* 2. Increased text from lg to xl */}
+            <p className="text-xl font-semibold mb-4">
               <span className="text-white">BMSCE IEEE Computer Society</span>
               <span className="text-green-300 ml-2">presents</span>
             </p>
@@ -43,24 +43,24 @@ export default function HeroCountdown() {
               alt="Open Source Week" 
               width={720} 
               height={180} 
-              className="mx-auto"
+              className="mx-auto w-full h-auto" // Use w-full to scale with parent
               priority // Load this image first
             />
             
-            {/* --- THIS IS THE OTHER FIX --- */}
-            {/* Changed mt-4 to mt-8 to add space */}
-            <p className="mt-12 text-lg text-green-200">Starts in</p>
+            {/* 3. Increased text from lg to xl and margin-top */}
+            <p className="mt-10 text-xl text-green-200">Starts in</p>
 
             {isStarted ? (
               <motion.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="mt-6 text-2xl md:text-4xl text-white font-semibold"
+                className="mt-6 text-3xl md:text-5xl text-white font-semibold"
               >
                 It’s happening now 🚀
               </motion.div>
             ) : (
-              <div className="mt-4 flex gap-3 justify-center">
+              // 4. Increased margin-top, gap, and text sizes
+              <div className="mt-6 flex gap-4 justify-center">
                 {[
                   { label: "Days", value: days },
                   { label: "Hours", value: hours },
@@ -72,33 +72,34 @@ export default function HeroCountdown() {
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.06 }}
-                    className="bg-neutral-900/50 border border-green-900/30 backdrop-blur-sm px-4 py-2 rounded-lg text-center min-w-[72px] sm:min-w-[84px] flex flex-col items-center"
+                    className="bg-neutral-900/50 border border-green-900/30 backdrop-blur-sm px-4 py-3 rounded-lg text-center min-w-[80px] sm:min-w-[96px] flex flex-col items-center"
                     aria-label={`${seg.value} ${seg.label}`}
                     suppressHydrationWarning={true}
                   >
                     <div 
-                      className="font-mono text-2xl md:text-3xl text-green-300" 
+                      className="font-mono text-3xl md:text-4xl text-green-300" 
                       aria-hidden="true"
                       suppressHydrationWarning={true}
                     >
                       {pad(seg.value)}
                     </div>
-                    <div className="text-xs text-neutral-400" aria-hidden="true">{seg.label}</div>
+                    <div className="text-sm text-neutral-400" aria-hidden="true">{seg.label}</div>
                   </motion.div>
                 ))}
               </div>
             )}
 
-            <div className="mt-8 flex gap-3 justify-center">
+            {/* 5. Increased margin-top, gap, and button/text sizes */}
+            <div className="mt-10 flex gap-4 justify-center">
               <a 
                 href="#register" 
-                className="px-5 py-3 rounded-md bg-gradient-to-r from-green-500 to-green-400 text-black font-semibold shadow-lg hover:scale-[1.02] transition-transform animate-neon-glow"
+                className="px-6 py-3 text-lg rounded-md bg-gradient-to-r from-green-500 to-green-400 text-black font-semibold shadow-lg hover:scale-[1.02] transition-transform animate-neon-glow"
               >
                 Register Now
               </a>
               <a 
                 href="#highlights" 
-                className="px-5 py-3 rounded-md border border-green-700 text-green-200 hover:bg-green-900/30 transition-colors"
+                className="px-6 py-3 text-lg rounded-md border border-green-700 text-green-200 hover:bg-green-900/30 transition-colors"
               >
                 Learn more
               </a>
