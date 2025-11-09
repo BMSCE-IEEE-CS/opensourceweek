@@ -15,8 +15,8 @@ export default function Navbar() {
               <Image 
                 src="/club-logo.png" 
                 alt="BMSCE IEEE CS Logo" 
-                width={100} 
-                height={100} 
+                width={56} 
+                height={56} 
               />
             </div>
           </Link>
@@ -31,7 +31,8 @@ export default function Navbar() {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="cursor-target text-sm text-white px-3 py-2 rounded-lg bg-gradient-to-r from-green-500 to-green-400 shadow-lg hover:brightness-110 transition-all animate-neon-glow"
+            // --- THIS IS THE FIX ---
+            className="cursor-target text-sm text-white px-3 py-2 rounded-lg bg-gradient-to-r from-green-500 to-green-400 shadow-lg hover:brightness-110 transition-all hover:animate-neon-glow"
           >
             Stay Updated!
           </a>
@@ -43,7 +44,8 @@ export default function Navbar() {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="cursor-target text-sm text-white px-3 py-2 rounded-lg bg-green-600 animate-neon-glow"
+            // --- THIS IS THE FIX ---
+            className="cursor-target text-sm text-white px-3 py-2 rounded-lg bg-green-600 hover:animate-neon-glow"
           >
             Stay Updated!
           </a>
