@@ -12,22 +12,37 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <Link href="/" aria-label="Home" className="cursor-target">
             <div className="flex items-center gap-3">
-              <Image 
-                src="/club-logo.png" 
-                alt="BMSCE IEEE CS Logo" 
-                width={100} 
-                height={100} 
+              <Image
+                src="/club-logo.png"
+                alt="BMSCE IEEE CS Logo"
+                width={100}
+                height={100}
               />
             </div>
           </Link>
         </div>
 
         <nav aria-label="Primary" className="hidden md:flex gap-6 items-center">
-          <a href="#home" className="cursor-target text-sm text-neutral-200 hover:text-white transition-colors">Home</a>
-          <a href="#about" className="cursor-target text-sm text-neutral-200 hover:text-white transition-colors">About</a>
-          <a href="#resources" className="cursor-target text-sm text-neutral-200 hover:text-white transition-colors">Resource persons</a>
-          <a href="#schedule" className="cursor-target text-sm text-neutral-200 hover:text-white transition-colors">Schedule</a>
-          <a 
+          <a
+            href="#home"
+            className="cursor-target text-sm text-neutral-200 hover:text-white transition-colors"
+          >
+            Home
+          </a>
+          <a
+            href="#about"
+            className="cursor-target text-sm text-neutral-200 hover:text-white transition-colors"
+          >
+            About
+          </a>
+          {/* <a href="#resources" className="cursor-target text-sm text-neutral-200 hover:text-white transition-colors">Resource persons</a> */}
+          <a
+            href="#schedule"
+            className="cursor-target text-sm text-neutral-200 hover:text-white transition-colors"
+          >
+            Schedule
+          </a>
+          <a
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
@@ -40,7 +55,7 @@ export default function Navbar() {
 
         {/* Mobile menu (simple) */}
         <div className="md:hidden">
-          <a 
+          <a
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
