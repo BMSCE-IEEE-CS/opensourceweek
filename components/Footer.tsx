@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image"; // <-- 1. IMPORT IMAGE
 
 export default function Footer() {
   return (
@@ -16,7 +17,7 @@ export default function Footer() {
           
           <div className="flex gap-4 mt-4">
             <a 
-              href="https://www.instagram.com/bmsce_ieeecs/" // <-- Edit this link
+              href="https://www.instagram.com/bmsce_ieeecs/"
               target="_blank" 
               rel="noopener noreferrer" 
               aria-label="Instagram"
@@ -31,7 +32,7 @@ export default function Footer() {
               </svg>
             </a>
             <a 
-              href="https://www.linkedin.com/company/bmsce-ieee-computer-society/" // <-- Edit this link
+              href="https://www.linkedin.com/company/bmsce-ieee-computer-society/"
               target="_blank" 
               rel="noopener noreferrer" 
               aria-label="LinkedIn"
@@ -46,7 +47,7 @@ export default function Footer() {
               </svg>
             </a>
             <a 
-              href="https://github.com/BMSCE-IEEE-CS" // <-- Edit this link
+              href="https://github.com/BMSCE-IEEE-CS"
               target="_blank" 
               rel="noopener noreferrer" 
               aria-label="GitHub"
@@ -61,6 +62,17 @@ export default function Footer() {
               </svg>
             </a>
           </div>
+
+          {/* --- 2. ADDED IMAGE HERE --- */}
+          <Image 
+            src="/club-logo.png"
+            alt="BMSCE IEEE CS Logo"
+            width={80} // A bit larger for the footer
+            height={80}
+            className="mt-6" // Add margin-top
+          />
+          {/* --- END OF ADDED IMAGE --- */}
+
         </div>
 
         {/* Column 2: Contacts */}
@@ -97,17 +109,15 @@ export default function Footer() {
         <div>
           <h4 className="text-white font-semibold mb-3">Location</h4>
           <div className="w-full h-48 rounded-md overflow-hidden border border-green-900/30">
-            {/* --- THIS IS THE FIX --- */}
             <iframe
               title="BMSCE Location"
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15553.888370957551!2d77.56681!3d12.941615!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae158b11e34d2f%3A0x5f4adbdbab8bd80f!2sBMS%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1762656842166!5m2!1sen!2sin"
+              src="http://googleusercontent.com/maps/google.com/13"
               className="w-full h-full"
               style={{ border: 0 }}
               allowFullScreen={true}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
-            {/* --- END OF FIX --- */}
           </div>
           <p className="text-xs text-neutral-400 mt-2">
             BMS College of Engineering, Bull Temple Rd, Basavanagudi, Bengaluru, KA 560019
