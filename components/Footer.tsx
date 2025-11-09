@@ -98,10 +98,9 @@ export default function Footer() {
           <h4 className="text-white font-semibold mb-3">Location</h4>
           <div className="w-full h-48 rounded-md overflow-hidden border border-green-900/30">
             {/* --- THIS IS THE FIX --- */}
-            {/* I've used the real embed link for BMSCE */}
             <iframe
               title="BMSCE Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.358525164102!2d77.56372677580103!3d12.94888128736345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae158b16f21201%3A0x1da006d336d6c6f1!2sBMS%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1730999086001!5m2!1sen!2sin1"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15553.888370957551!2d77.56681!3d12.941615!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae158b11e34d2f%3A0x5f4adbdbab8bd80f!2sBMS%20College%20of%20Engineering!5e0!3m2!1sen!2sin!4v1762656842166!5m2!1sen!2sin"
               className="w-full h-full"
               style={{ border: 0 }}
               allowFullScreen={true}
