@@ -45,8 +45,9 @@ export default function HeroCountdown() {
               priority // Load this image first
             />
             
-            {/* --- THIS IS THE NEW BOX --- */}
-            <div className="mt-10 rounded-lg border border-green-800/30 pt-6 pb-8 px-6 backdrop-blur-sm bg-black/10">
+            {/* --- THIS IS THE FIX --- */}
+            {/* Added 'max-w-lg' and 'mx-auto' to make the box shorter */}
+            <div className="mt-10 rounded-lg border border-green-800/30 pt-6 pb-8 px-6 backdrop-blur-sm bg-black/10 max-w-lg mx-auto">
               <p className="text-xl text-green-200">Starts in</p>
 
               {isStarted ? (
