@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import DotGrid from "@/components/DotGrid"; // <-- IMPORTED
+import DotGrid from "@/components/DotGrid";
+import TargetCursor from "@/components/TargetCursor"; // <-- 1. IMPORT CURSOR
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
 
 function EventSchema() {
   const schema = {
-    "@context": "https://schema.org",
+    "@context": "https.schema.org",
     "@type": "Event",
     "name": "Open Source Week by BMSCE IEEE CS",
     "startDate": EVENT_START_DATE.toISOString(),
@@ -108,11 +109,8 @@ export default function RootLayout({
       <head>
         <EventSchema />
       </head>
-      {/* Add 'relative' to the body tag */}
       <body className={`${inter.className} relative`}>
         
-        {/* --- THIS IS THE FIX --- */}
-        {/* Added 'bg-black' to this div */}
         <div className="fixed inset-0 -z-10 w-full h-screen bg-black">
           <DotGrid
             dotSize={2}
@@ -126,14 +124,14 @@ export default function RootLayout({
             returnDuration={0.5}
           />
         </div>
-        {/* --- END OF FIX --- */}
-
 
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
         
-        {/* Your page content renders here, on top of the background */}
+        {/* --- 2. ADD THE CURSOR COMPONENT HERE --- */}
+        <TargetCursor />
+
         {children}
       </body>
     </html>
