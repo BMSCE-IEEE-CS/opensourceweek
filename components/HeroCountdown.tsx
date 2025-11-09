@@ -36,7 +36,7 @@ export default function HeroCountdown() {
           <div className="mx-auto max-w-2xl">
             
             {/* Increased text from lg to xl */}
-            <p className="text-xl font-semibold mb-4">
+            <p className="text-xl font-semibold mb-8">
               <span className="text-white">BMSCE IEEE Computer Society</span>
               <span className="text-green-300 ml-2">presents</span>
             </p>
