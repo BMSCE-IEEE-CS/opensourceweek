@@ -26,17 +26,12 @@ export default function HeroCountdown() {
   const isStarted = diff <= 0;
 
   return (
-    // --- THIS IS THE FIX ---
-    // Changed min-h-[70vh] to min-h-[65vh] to move content up
     <section id="home" className="min-h-[65vh] flex items-center justify-center">
-      {/* Removed redundant padding py-16 from section */}
       <div className="max-w-6xl w-full px-6 py-12 flex items-center justify-center">
         <div className="text-center">
-          {/* Increased max-width from lg to 2xl */}
           <div className="mx-auto max-w-2xl">
             
-            {/* Increased text from lg to xl */}
-            <p className="text-xl font-semibold mb-8">
+            <p className="text-xl font-semibold mb-4">
               <span className="text-white">BMSCE IEEE Computer Society</span>
               <span className="text-green-300 ml-2">presents</span>
             </p>
@@ -46,53 +41,55 @@ export default function HeroCountdown() {
               alt="Open Source Week" 
               width={720} 
               height={180} 
-              className="mx-auto w-full h-auto" // Use w-full to scale with parent
+              className="mx-auto w-full h-auto"
               priority // Load this image first
             />
             
-            {/* Increased text from lg to xl and margin-top */}
-            <p className="mt-10 text-xl text-green-200">Starts in</p>
+            {/* --- THIS IS THE NEW BOX --- */}
+            <div className="mt-10 rounded-lg border border-green-800/30 pt-6 pb-8 px-6 backdrop-blur-sm bg-black/10">
+              <p className="text-xl text-green-200">Starts in</p>
 
-            {isStarted ? (
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="mt-6 text-3xl md:text-5xl text-white font-semibold"
-              >
-                It’s happening now 🚀
-              </motion.div>
-            ) : (
-              // Increased margin-top, gap, and text sizes
-              <div className="mt-6 flex gap-4 justify-center">
-                {[
-                  { label: "Days", value: days },
-                  { label: "Hours", value: hours },
-                  { label: "Minutes", value: minutes },
-                  { label: "Seconds", value: seconds },
-                ].map((seg, i) => (
-                  <motion.div
-                    key={seg.label}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.06 }}
-                    className="bg-neutral-900/50 border border-green-900/30 backdrop-blur-sm px-4 py-3 rounded-lg text-center min-w-[80px] sm:min-w-[96px] flex flex-col items-center"
-                    aria-label={`${seg.value} ${seg.label}`}
-                    suppressHydrationWarning={true}
-                  >
-                    <div 
-                      className="font-mono text-3xl md:text-4xl text-green-300" 
-                      aria-hidden="true"
+              {isStarted ? (
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="mt-6 text-3xl md:text-5xl text-white font-semibold"
+                >
+                  It’s happening now 🚀
+                </motion.div>
+              ) : (
+                <div className="mt-6 flex gap-4 justify-center">
+                  {[
+                    { label: "Days", value: days },
+                    { label: "Hours", value: hours },
+                    { label: "Minutes", value: minutes },
+                    { label: "Seconds", value: seconds },
+                  ].map((seg, i) => (
+                    <motion.div
+                      key={seg.label}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.06 }}
+                      className="bg-neutral-900/50 border border-green-900/30 backdrop-blur-sm px-4 py-3 rounded-lg text-center min-w-[80px] sm:min-w-[96px] flex flex-col items-center"
+                      aria-label={`${seg.value} ${seg.label}`}
                       suppressHydrationWarning={true}
                     >
-                      {pad(seg.value)}
-                    </div>
-                    <div className="text-sm text-neutral-400" aria-hidden="true">{seg.label}</div>
-                  </motion.div>
-                ))}
-              </div>
-            )}
+                      <div 
+                        className="font-mono text-3xl md:text-4xl text-green-300" 
+                        aria-hidden="true"
+                        suppressHydrationWarning={true}
+                      >
+                        {pad(seg.value)}
+                      </div>
+                      <div className="text-sm text-neutral-400" aria-hidden="true">{seg.label}</div>
+                    </motion.div>
+                  ))}
+                </div>
+              )}
+            </div>
+            {/* --- END OF NEW BOX --- */}
 
-            {/* Increased margin-top, gap, and button/text sizes */}
+
             <div className="mt-10 flex gap-4 justify-center">
               <a 
                 href="#register" 
