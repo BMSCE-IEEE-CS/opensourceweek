@@ -26,16 +26,21 @@ export default function HeroCountdown() {
   const isStarted = diff <= 0;
 
   return (
-    <section id="home" className="min-h-[70vh] flex items-center justify-center bg-gradient-to-b from-black via-[#050505] to-black py-16">
-      <div className="max-w-6xl w-full px-6 py-12 flex flex-col md:flex-row items-center gap-12">
-        <div className="flex-1 text-center md:text-left">
-          <div className="mx-auto md:mx-0 max-w-lg">
+    <section id="home" className="min-h-[70vh] flex items-center justify-center py-16">
+      {/* This parent div is now set to center its content,
+        since there's only one column.
+      */}
+      <div className="max-w-6xl w-full px-6 py-12 flex items-center justify-center">
+        {/* This is the main content column, now centered.
+        */}
+        <div className="text-center">
+          <div className="mx-auto max-w-lg">
             <Image 
               src="/title.png" 
               alt="Open Source Week" 
               width={720} 
               height={180} 
-              className="mx-auto md:mx-0"
+              className="mx-auto"
               priority // Load this image first
             />
             <p className="mt-4 text-lg text-green-200">Starts in</p>
@@ -49,7 +54,8 @@ export default function HeroCountdown() {
                 It’s happening now 🚀
               </motion.div>
             ) : (
-              <div className="mt-4 flex gap-3 justify-center md:justify-start">
+              // This div is now centered with 'justify-center'
+              <div className="mt-4 flex gap-3 justify-center">
                 {[
                   { label: "Days", value: days },
                   { label: "Hours", value: hours },
@@ -78,7 +84,8 @@ export default function HeroCountdown() {
               </div>
             )}
 
-            <div className="mt-8 flex gap-3 justify-center md:justify-start">
+            {/* This div is now centered with 'justify-center' */}
+            <div className="mt-8 flex gap-3 justify-center">
               <a 
                 href="#register" 
                 className="px-5 py-3 rounded-md bg-gradient-to-r from-green-500 to-green-400 text-black font-semibold shadow-lg hover:scale-[1.02] transition-transform animate-neon-glow"
@@ -95,21 +102,10 @@ export default function HeroCountdown() {
           </div>
         </div>
 
-        <div className="flex-1 w-full">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="w-full h-64 md:h-80 rounded-xl border border-green-800/30 bg-gradient-to-br from-black/30 to-green-950/20 p-6 flex flex-col justify-between"
-          >
-            <div className="text-lg font-semibold text-white">Open Source Week</div>
-            <div className="text-right">
-                <div className="text-sm sm:text-base text-neutral-300">Workshops • Industry visit</div>
-                <div className="text-sm sm:text-base text-neutral-300">Contribution sprint</div>
-                <div className="text-sm sm:text-base text-neutral-300">RepoGenesis Hackathon</div>
-            </div>
-          </motion.div>
-        </div>
+        {/* THIS IS THE BOX I REMOVED.
+          The entire "flex-1 w-full" div that contained
+          the floating card is now gone.
+        */}
       </div>
     </section>
   );
