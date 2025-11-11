@@ -44,7 +44,7 @@ const highlights = [
     longDesc:
       "This workshop dives into the latest in autonomous AI agents, exploring how they work and how you can build your own.",
     posterUrl: "/posters/agentic-ai.png",
-    registerLink: "https://forms.google.com/YOUR_LINK_HERE",
+    registerLink: "https://tinyurl.com/OS-Week-Agentic-AI",
   },
   {
     title: "RepoGenesis — 24-Hour Hackathon",
@@ -52,7 +52,7 @@ const highlights = [
     longDesc:
       "The main event! A 24-hour hackathon where teams of 2-4 build an open-source solution from scratch. Includes mentorship, checkpoints, and prizes!",
     posterUrl: "/posters/repogenesis.png",
-    registerLink: "https://forms.google.com/YOUR_LINK_HERE",
+    registerLink: "https://tinyurl.com/OS-Week-Repogenesis",
   },
 ];
 
