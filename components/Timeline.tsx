@@ -12,7 +12,7 @@ type Item = {
   children?: Omit<Item, "side" | "children">[]; // Sub-items
 };
 
-// --- THIS ARRAY IS NOW UPDATED BASED ON YOUR IMAGE ---
+// --- EDIT YOUR SCHEDULE DATA HERE ---
 const TIMELINE: Item[] = [
   {
     id: "industry",
@@ -45,7 +45,7 @@ const TIMELINE: Item[] = [
   {
     id: "agentic",
     title: "Agentic AI Unpacked",
-    time: "20th Nov",
+    time: "20th Nov / 22nd Nov",
     desc: "Dives into the latest in autonomous AI agents.",
     side: "left",
   },
@@ -67,7 +67,6 @@ const TIMELINE: Item[] = [
     ],
   },
 ];
-// --- END OF UPDATES ---
 
 export default function Timeline() {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -252,10 +251,15 @@ const TimelineCard = ({ item }: { item: Item }) => (
         <div className="ml-2 border-l-2 border-green-800/50 pl-4 space-y-3">
           {item.children.map((c) => (
             <div key={c.id} className="text-sm text-neutral-300 relative">
+              
+              {/* --- THIS IS THE FIX --- */}
+              {/* 1. Dot is smaller: w-1.5 h-1.5 */}
+              {/* 2. Position adjusted: -left-[18px] top-[7px] */}
               <div
-                className="absolute -left-[19px] top-1.5 w-2 h-2 rounded-full bg-green-600"
+                className="absolute -left-[18px] top-[7px] w-1.5 h-1.5 rounded-full bg-green-600"
                 aria-hidden="true"
               ></div>
+              
               <div className="font-medium text-green-300">{c.title}</div>
               <div className="text-xs text-neutral-400">{c.time}</div>
             </div>
