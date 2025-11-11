@@ -243,7 +243,7 @@ export default function Timeline() {
 const TimelineCard = ({ item }: { item: Item }) => (
   <div className="cursor-target bg-neutral-900/40 border border-green-900/30 p-4 rounded-lg shadow-md">
     <div className="text-base font-semibold text-green-300">{item.title}</div>
-    <div classNameV="text-xs text-neutral-400 mt-1">{item.time}</div>
+    <div className="text-xs text-neutral-400 mt-1">{item.time}</div>
     {item.desc && <p className="text-sm text-neutral-300 mt-2">{item.desc}</p>}
 
     {/* nested sub-timeline (RepoGenesis) */}
