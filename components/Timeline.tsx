@@ -12,47 +12,62 @@ type Item = {
   children?: Omit<Item, "side" | "children">[]; // Sub-items
 };
 
-// --- EDIT YOUR SCHEDULE DATA HERE ---
+// --- THIS ARRAY IS NOW UPDATED BASED ON YOUR IMAGE ---
 const TIMELINE: Item[] = [
   {
-    id: "d1",
-    title: "Industry Visit — Red Hat",
-    time: "Day 1 — 09:00 AM",
-    desc: "Guided tour and interactive sessions (60-70 students).",
+    id: "industry",
+    title: "Industry Visit",
+    time: "17th Nov",
+    desc: "Guided tour and interactive sessions.",
     side: "left",
   },
   {
-    id: "d2",
-    title: "Workshops",
-    time: "Day 2 — 10:00 AM",
-    desc: "GitHub 101 • Agentic AI Unpacked",
+    id: "github",
+    title: "GitHub 101",
+    time: "18th Nov, 10am - 2pm",
+    desc: "Learn the fundamentals of version control and collaboration.",
     side: "right",
   },
   {
-    id: "d3",
-    title: "Contribution Sprint",
-    time: "Day 3 — 09:30 AM",
-    desc: "Guided open-source contribution sprint (virtual available).",
+    id: "matlab",
+    title: "Matlab Workshop",
+    time: "18th Nov, 10am - 1pm",
+    desc: "A hands-on session on Matlab for engineers and scientists.",
     side: "left",
   },
   {
-    id: "d45",
+    id: "sprint",
+    title: "Contribution Sprint",
+    time: "19th Nov, 10am - 4pm",
+    desc: "Mentored sprint to submit issues, fixes, and features.",
+    side: "right",
+  },
+  {
+    id: "agentic",
+    title: "Agentic AI Unpacked",
+    time: "20th Nov / 22nd Nov",
+    desc: "Dives into the latest in autonomous AI agents.",
+    side: "left",
+  },
+  {
+    id: "repogenesis",
     title: "RepoGenesis — 24-Hour Hackathon",
-    time: "Days 4–5 — Starts 10:00 AM",
+    time: "21st Nov 5pm - 22nd Nov 5pm",
     desc: "24-hour open-source hackathon with checkpoints.",
     side: "right",
     children: [
       {
         id: "rg1",
-        title: "Team Formation & Kickoff",
-        time: "Day 4 - 10:00 AM",
+        title: "Hackathon Kickoff",
+        time: "21st Nov, 5:00 PM",
       },
-      { id: "rg2", title: "Checkpoint 1", time: "Day 4 - 04:00 PM" },
-      { id: "rg3", title: "Checkpoint 2", time: "Day 5 - 12:00 AM" },
-      { id: "rg4", title: "Final Demo & Judging", time: "Day 5 - 11:00 AM" },
+      { id: "rg2", title: "Checkpoint 1", time: "21st Nov, 10:00 PM" },
+      { id: "rg3", title: "Checkpoint 2", time: "22nd Nov, 10:00 AM" },
+      { id: "rg4", title: "Final Demos & Judging", time: "22nd Nov, 5:00 PM" },
     ],
   },
 ];
+// --- END OF UPDATES ---
 
 export default function Timeline() {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -226,10 +241,9 @@ export default function Timeline() {
 
 // Helper component for the card content
 const TimelineCard = ({ item }: { item: Item }) => (
-  // --- ADDED CURSOR-TARGET HERE ---
-  <div className="cursor-target bg-neutral-600/40 border border-green-900/30 p-4 rounded-lg shadow-md">
+  <div className="cursor-target bg-neutral-900/40 border border-green-900/30 p-4 rounded-lg shadow-md">
     <div className="text-base font-semibold text-green-300">{item.title}</div>
-    <div className="text-xs text-neutral-400 mt-1">{item.time}</div>
+    <div classNameV="text-xs text-neutral-400 mt-1">{item.time}</div>
     {item.desc && <p className="text-sm text-neutral-300 mt-2">{item.desc}</p>}
 
     {/* nested sub-timeline (RepoGenesis) */}
