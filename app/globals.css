@@ -25,7 +25,8 @@ body {
   position: absolute;
   top: -40px;
   left: 0;
-  background: #34d399; /* neon green */
+  background: #34d399;
+  /* neon green */
   color: black;
   padding: 8px 12px;
   z-index: 100;
@@ -69,6 +70,7 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -99,12 +101,3 @@ body {
 
 /* ---break---
 */
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
