@@ -26,13 +26,12 @@ interface EventRegisterModalProps {
   children: React.ReactNode; // This will be the card that triggers the modal
 }
 
-export function EventRegisterModal({
-  event,
-  children,
-}: EventRegisterModalProps) {
+export function EventRegisterModal({ event, children }: EventRegisterModalProps) {
   return (
     <Dialog>
-      <DialogTrigger asChild>{children}</DialogTrigger>
+      <DialogTrigger asChild>
+        {children}
+      </DialogTrigger>
       <DialogContent className="bg-neutral-900 border-green-800 text-white max-w-md">
         <DialogHeader>
           <DialogTitle className="text-2xl text-green-300">
@@ -43,26 +42,31 @@ export function EventRegisterModal({
           </DialogDescription>
         </DialogHeader>
         <div className="mt-4 space-y-4">
-          <div className="w-full aspect-[16/9] rounded-md overflow-hidden relative">
-            <Image
-              src={event.posterUrl}
-              alt={`${event.title} Poster`}
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
+          
+          {/* --- THIS IS THE FIX --- */}
+          {/* I removed the <div> wrapper and its 'aspect-[16/9]' class.
+            I set a base width/height (e.g., 1080x1080) for the aspect ratio 
+            and made it responsive with 'w-full h-auto'.
+          */}
+          <Image 
+            src={event.posterUrl} 
+            alt={`${event.title} Poster`} 
+            width={1080}  // Use the poster's native width
+            height={1080} // Use the poster's native height (e.g., 1080 for a square)
+            className="w-full h-auto rounded-md"
+          />
+          {/* --- END OF FIX --- */}
+
           {event.longDesc && (
-            <p className="text-sm text-neutral-300">{event.longDesc}</p>
+            <p className="text-sm text-neutral-300">
+              {event.longDesc}
+            </p>
           )}
-          <Button
-            asChild
+          <Button 
+            asChild 
             className="w-full bg-gradient-to-r from-green-500 to-green-400 text-black font-semibold text-lg py-6 hover:brightness-110 animate-neon-glow"
           >
-            <a
-              href={event.registerLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={event.registerLink} target="_blank" rel="noopener noreferrer">
               Register for this Event
             </a>
           </Button>
