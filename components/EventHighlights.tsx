@@ -12,7 +12,7 @@ const highlights = [
     longDesc:
       "An exclusive visit for 60-70 students to a top tech campus in Bengaluru. Get insights from industry professionals, learn about open-source contributions, and explore career paths in cloud-native technologies.",
     posterUrl: "/posters/industry-visit.png",
-    registerLink: "https://forms.google.com/YOUR_LINK_HERE",
+    registerLink: "https://tinyurl.com/OS-Week-MATLAB-Workshop",
   },
   {
     title: "GitHub 101",
@@ -20,7 +20,7 @@ const highlights = [
     longDesc:
       "This workshop covers the fundamentals of Git and GitHub, from creating repositories and branches to making pull requests. Perfect for beginners!",
     posterUrl: "/posters/github101.png",
-    registerLink: "https://forms.google.com/YOUR_LINK_HERE",
+    registerLink: "https://tinyurl.com/OS-Week-MATLAB-Workshop",
   },
   {
     title: "Matlab Workshop",
@@ -28,7 +28,7 @@ const highlights = [
     longDesc:
       "A hands-on session covering the basics and advanced features of Matlab, a powerful tool for engineers and scientists.",
     posterUrl: "/posters/matlab.png",
-    registerLink: "https://forms.google.com/YOUR_LINK_HERE",
+    registerLink: "https://tinyurl.com/OS-Week-MATLAB-Workshop",
   },
   {
     title: "Contribution Sprint",
@@ -36,7 +36,7 @@ const highlights = [
     longDesc:
       "Join our mentored contribution sprint! Find a project, claim an issue, and make your first (or next) open-source contribution with the help of experienced mentors.",
     posterUrl: "/posters/sprint.png",
-    registerLink: "https://forms.google.com/YOUR_LINK_HERE",
+    registerLink: "https://tinyurl.com/OS-Week-MATLAB-Workshop",
   },
   {
     title: "Agentic AI Unpacked",
