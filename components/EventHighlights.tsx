@@ -7,30 +7,6 @@ import { EventRegisterModal } from "./EventRegisterModal";
 // Updated highlights array
 const highlights = [
   {
-    title: "Industry Visit",
-    desc: "17th Nov | Guided tour and sessions on cloud, DevOps and careers.",
-    longDesc:
-      "An exclusive visit for 60-70 students to a top tech campus in Bengaluru. Get insights from industry professionals, learn about open-source contributions, and explore career paths in cloud-native technologies.",
-    posterUrl: "/posters/industry-visit.png",
-    registerLink: "https://tinyurl.com/OS-Week-MATLAB-Workshop",
-  },
-  {
-    title: "GitHub 101",
-    desc: "18th Nov, 10am - 2pm | The fundamentals of version control.",
-    longDesc:
-      "This workshop covers the fundamentals of Git and GitHub, from creating repositories and branches to making pull requests. Perfect for beginners!",
-    posterUrl: "/posters/github101.png",
-    registerLink: "https://tinyurl.com/OS-Week-MATLAB-Workshop",
-  },
-  {
-    title: "Matlab Workshop",
-    desc: "18th Nov, 10am - 1pm | A hands-on session on Matlab.",
-    longDesc:
-      "A hands-on session covering the basics and advanced features of Matlab, a powerful tool for engineers and scientists.",
-    posterUrl: "/posters/matlab.png",
-    registerLink: "https://tinyurl.com/OS-Week-MATLAB-Workshop",
-  },
-  {
     title: "Contribution Sprint",
     desc: "19th Nov, 10am - 4pm | Mentored sprint to submit issues & features.",
     longDesc:
@@ -63,7 +39,7 @@ export default function EventHighlights() {
         <h2 className="text-3xl font-extrabold text-white mb-8 text-center">
           Our Events
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           {highlights.map((h, i) => (
             <EventRegisterModal key={h.title} event={h}>
               <motion.article

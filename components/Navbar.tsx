@@ -43,26 +43,26 @@ export default function Navbar() {
             Schedule
           </a>
           <a
-            href={whatsappLink}
+            href="#highlights"
             target="_blank"
             rel="noopener noreferrer"
             // --- THIS IS THE FIX ---
-            className="cursor-target text-sm text-white px-3 py-2 rounded-lg bg-gradient-to-r from-green-500 to-green-400 shadow-lg hover:brightness-110 transition-all hover:animate-neon-glow"
+            className="cursor-target text-sm px-3 py-2 rounded-lg bg-gradient-to-r from-green-500 to-green-400 shadow-lg hover:brightness-110 font-bold transition-all hover:animate-neon-glow"
           >
-            Stay Updated!
+            Register Now
           </a>
         </nav>
 
         {/* Mobile menu (simple) */}
         <div className="md:hidden">
           <a
-            href={whatsappLink}
+            href="#highlights"
             target="_blank"
             rel="noopener noreferrer"
             // --- THIS IS THE FIX ---
-            className="cursor-target text-sm text-white px-3 py-2 rounded-lg bg-green-600 hover:animate-neon-glow"
+            className="cursor-target text-base font-bold px-3 py-2 rounded-lg bg-green-600 hover:animate-neon-glow"
           >
-            Stay Updated!
+            Register Now
           </a>
         </div>
       </div>

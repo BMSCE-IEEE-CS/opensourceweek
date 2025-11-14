@@ -15,27 +15,6 @@ type Item = {
 // --- EDIT YOUR SCHEDULE DATA HERE ---
 const TIMELINE: Item[] = [
   {
-    id: "industry",
-    title: "Industry Visit",
-    time: "17th Nov",
-    desc: "Guided tour and interactive sessions.",
-    side: "left",
-  },
-  {
-    id: "github",
-    title: "GitHub 101",
-    time: "18th Nov, 10am - 2pm",
-    desc: "Learn the fundamentals of version control and collaboration.",
-    side: "right",
-  },
-  {
-    id: "matlab",
-    title: "Matlab Workshop",
-    time: "18th Nov, 10am - 1pm",
-    desc: "A hands-on session on Matlab for engineers and scientists.",
-    side: "left",
-  },
-  {
     id: "sprint",
     title: "Contribution Sprint",
     time: "19th Nov, 10am - 4pm",
@@ -251,7 +230,6 @@ const TimelineCard = ({ item }: { item: Item }) => (
         <div className="ml-2 border-l-2 border-green-800/50 pl-4 space-y-3">
           {item.children.map((c) => (
             <div key={c.id} className="text-sm text-neutral-300 relative">
-              
               {/* --- THIS IS THE FIX --- */}
               {/* 1. Dot is smaller: w-1.5 h-1.5 */}
               {/* 2. Position adjusted: -left-[18px] top-[7px] */}
@@ -259,7 +237,7 @@ const TimelineCard = ({ item }: { item: Item }) => (
                 className="absolute -left-[18px] top-[7px] w-1.5 h-1.5 rounded-full bg-green-600"
                 aria-hidden="true"
               ></div>
-              
+
               <div className="font-medium text-green-300">{c.title}</div>
               <div className="text-xs text-neutral-400">{c.time}</div>
             </div>
