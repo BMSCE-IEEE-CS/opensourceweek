@@ -35,7 +35,7 @@ const highlights = [
     title: "Tech Trails",
     desc: "A multi-stage tech adventure. Decode puzzles, solve riddles, and compete.",
     longDesc:
-      "Teams of 2-3 embark on a journey from decoding puzzles (Round 1: Campus QR Hunt) to competing in high-energy challenges (Round 2: GitHub Bingo). It tests coding, logical reasoning, and creativity. Registration is free!",
+      "Teams of 2–3 embark on a journey filled with decoding puzzles and high-energy challenges that test coding skills, logical reasoning, and creativity. Registration is free!",
     posterUrl: "/posters/techtrails.png", // <-- Add your poster
     registerLink: "https://forms.google.com/YOUR_LINK_HERE", // <-- Add your link
   },
