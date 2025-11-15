@@ -14,6 +14,15 @@ type Item = {
 
 // --- EDIT YOUR SCHEDULE DATA HERE ---
 const TIMELINE: Item[] = [
+  // --- ADDED TECH TRAILS AT THE START ---
+  {
+    id: "techtrails",
+    title: "Tech Trails",
+    time: "DATE & TIME TBD", // <-- UPDATE THIS DATE
+    desc: "Campus QR hunt (Round 1) & GitHub Bingo (Round 2).",
+    side: "left",
+  },
+  // --- Your existing events below ---
   {
     id: "sprint",
     title: "Contribution Sprint",
@@ -230,9 +239,6 @@ const TimelineCard = ({ item }: { item: Item }) => (
         <div className="ml-2 border-l-2 border-green-800/50 pl-4 space-y-3">
           {item.children.map((c) => (
             <div key={c.id} className="text-sm text-neutral-300 relative">
-              {/* --- THIS IS THE FIX --- */}
-              {/* 1. Dot is smaller: w-1.5 h-1.5 */}
-              {/* 2. Position adjusted: -left-[18px] top-[7px] */}
               <div
                 className="absolute -left-[18px] top-[7px] w-1.5 h-1.5 rounded-full bg-green-600"
                 aria-hidden="true"
