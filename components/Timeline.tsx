@@ -18,8 +18,8 @@ const TIMELINE: Item[] = [
   {
     id: "techtrails",
     title: "Tech Trails",
-    time: "DATE & TIME TBD", // <-- UPDATE THIS DATE
-    desc: "Campus QR hunt (Round 1) & GitHub Bingo (Round 2).",
+    time: "19th Nov, 10am - 2 pm", // <-- UPDATE THIS DATE
+    desc: "A multi-stage tech adventure. Decode puzzles, solve riddles, and compete.",
     side: "left",
   },
   // --- Your existing events below ---
