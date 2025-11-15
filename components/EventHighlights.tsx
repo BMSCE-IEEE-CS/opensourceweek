@@ -37,7 +37,7 @@ const highlights = [
     longDesc:
       "Teams of 2–3 embark on a journey filled with decoding puzzles and high-energy challenges that test coding skills, logical reasoning, and creativity. Registration is free!",
     posterUrl: "/posters/techtrails.png", // <-- Add your poster
-    registerLink: "https://forms.google.com/YOUR_LINK_HERE", // <-- Add your link
+    registerLink: "https://tinyurl.com/OS-Week-Tech-Trails", // <-- Add your link
   },
 ];
 
