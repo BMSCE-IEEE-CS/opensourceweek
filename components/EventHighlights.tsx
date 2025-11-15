@@ -32,7 +32,7 @@ const highlights = [
   },
   // --- ADDED TECH TRAILS HERE ---
   {
-    title: "Tech Trails",
+    title: "Tech Trail",
     desc: "A multi-stage tech adventure. Decode puzzles, solve riddles, and compete.",
     longDesc:
       "Teams of 2–3 embark on a journey filled with decoding puzzles and high-energy challenges that test coding skills, logical reasoning, and creativity. Registration is free!",
