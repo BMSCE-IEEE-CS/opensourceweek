@@ -14,15 +14,6 @@ type Item = {
 
 // --- EDIT YOUR SCHEDULE DATA HERE ---
 const TIMELINE: Item[] = [
-  // --- ADDED TECH TRAILS AT THE START ---
-  {
-    id: "techtrails",
-    title: "Tech Trail",
-    time: "19th Nov, 10am - 2 pm", // <-- UPDATE THIS DATE
-    desc: "A multi-stage tech adventure. Decode puzzles, solve riddles, and compete.",
-    side: "left",
-  },
-  // --- Your existing events below ---
   {
     id: "sprint",
     title: "Contribution Sprint",

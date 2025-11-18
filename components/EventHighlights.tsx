@@ -12,7 +12,7 @@ const highlights = [
     longDesc:
       "Join our mentored contribution sprint! Find a project, claim an issue, and make your first (or next) open-source contribution with the help of experienced mentors.",
     posterUrl: "/posters/sprint.png",
-    registerLink: "https://tinyurl.com/OS-Week-MATLAB-Workshop",
+    registerLink: "https://tinyurl.com/OS-Week-Contribution-sprint",
   },
   {
     title: "Agentic AI Unpacked",
@@ -30,15 +30,6 @@ const highlights = [
     posterUrl: "/posters/repogenesis.png",
     registerLink: "https://tinyurl.com/OS-Week-Repogenesis",
   },
-  // --- ADDED TECH TRAILS HERE ---
-  {
-    title: "Tech Trail",
-    desc: "A multi-stage tech adventure. Decode puzzles, solve riddles, and compete.",
-    longDesc:
-      "Teams of 2–3 embark on a journey filled with decoding puzzles and high-energy challenges that test coding skills, logical reasoning, and creativity. Registration is free!",
-    posterUrl: "/posters/techtrails.png", // <-- Add your poster
-    registerLink: "https://tinyurl.com/OS-Week-Tech-Trails", // <-- Add your link
-  },
 ];
 
 export default function EventHighlights() {
@@ -49,7 +40,7 @@ export default function EventHighlights() {
           Our Events
         </h2>
         {/* --- Updated grid to md:grid-cols-2 for a 2x2 layout --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {highlights.map((h, i) => (
             <EventRegisterModal key={h.title} event={h}>
               <motion.article
@@ -57,8 +48,10 @@ export default function EventHighlights() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ delay: i * 0.06, ease: "easeOut" }}
-                // --- Typo 'hover:hover:' fixed to 'hover:bg-radial-glow' ---
-                className="cursor-target p-6 rounded-xl border border-green-900/30 bg-gradient-to-b from-neutral-900/40 to-black/20 h-full transition-all duration-300 hover:scale-[1.03] hover:border-green-400/80 hover:shadow-neon-outer hover:shadow-neon-inner hover:bg-radial-glow"
+                // --- THIS IS THE FIX ---
+                // Added 'hover:bg-radial-glow' to add the inner pattern on hover
+                className="cursor-target p-6 rounded-xl border border-green-900/30 bg-gradient-to-b from-neutral-900/40 to-black/20 h-full transition-all duration-300 hover:scale-[1.03] hover:border-green-400/80 hover:shadow-neon-inner hover:hover:bg-green-900/50"
+                // --- END OF FIX ---
               >
                 <h3 className="text-lg font-semibold text-green-300">
                   {h.title}

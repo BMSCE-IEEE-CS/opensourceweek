@@ -46,7 +46,7 @@ export default function Navbar() {
             href="#highlights"
             className="cursor-target text-sm px-3 py-2 rounded-lg bg-gradient-to-r from-green-500 to-green-400 shadow-lg hover:brightness-110 font-bold transition-all hover:animate-neon-glow"
           >
-            Register Now
+            Know More
           </a>
         </nav>
 
@@ -56,7 +56,7 @@ export default function Navbar() {
             href="#highlights"
             className="cursor-target text-base font-bold px-3 py-2 rounded-lg bg-green-600 hover:animate-neon-glow"
           >
-            Register Now
+            Know More
           </a>
         </div>
       </div>
