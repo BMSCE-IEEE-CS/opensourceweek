@@ -19,7 +19,7 @@ const highlights = [
     desc: "20th Nov | Dives into the latest in autonomous AI agents.",
     longDesc:
       "This workshop dives into the latest in autonomous AI agents, exploring how they work and how you can build your own.",
-    posterUrl: "/posters/agentic-ai.png",
+    posterUrl: "/posters/agentic-ai (2).png",
     registerLink: "https://tinyurl.com/OS-Week-Agentic-AI",
   },
   {
@@ -27,7 +27,7 @@ const highlights = [
     desc: "21st Nov 5pm - 22nd Nov 5pm | Build open-source solutions.",
     longDesc:
       "The main event! A 24-hour hackathon where teams of 2-4 build an open-source solution from scratch. Includes mentorship, checkpoints, and prizes!",
-    posterUrl: "/posters/repogenesis.png",
+    posterUrl: "/posters/repogenesis (2).png",
     registerLink: "https://tinyurl.com/OS-Week-Repogenesis",
   },
 ];
