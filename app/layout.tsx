@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import DotGrid from "@/components/DotGrid";
 import TargetCursor from "@/components/TargetCursor";
+import { Providers } from "./providers";
+import ClientEnvironment from "@/components/Env";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,28 +37,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} relative`}>
-        <div className="fixed inset-0 -z-10 w-full h-screen bg-black">
-          <DotGrid
-            dotSize={2}
-            gap={20}
-            baseColor="#064e3b"
-            activeColor="#34d399"
-            proximity={40}
-            shockRadius={250}
-            shockStrength={0.5}
-            resistance={1000}
-            returnDuration={0.5}
-          />
-        </div>
-
-        <a href="#main-content" className="skip-link">
-          Skip to main content
-        </a>
-
-        <TargetCursor />
-
-        {children}
+      <body>
+        <Providers>
+          <ClientEnvironment />
+          {children}
+        </Providers>
       </body>
     </html>
   );
