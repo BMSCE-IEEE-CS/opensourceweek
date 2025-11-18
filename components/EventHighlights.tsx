@@ -16,7 +16,7 @@ const highlights = [
   },
   {
     title: "Agentic AI Unpacked",
-    desc: "20th Nov | Dives into the latest in autonomous AI agents.",
+    desc: "20th Nov, 11am - 1am | Dives into the latest in autonomous AI agents.",
     longDesc:
       "This workshop dives into the latest in autonomous AI agents, exploring how they work and how you can build your own.",
     posterUrl: "/posters/agentic-ai (2).png",
