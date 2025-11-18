@@ -80,25 +80,6 @@ export default function HeroCountdown() {
                 </div>
               </div>
             )}
-
-
-            <div className="mt-10 flex gap-4 justify-center">
-              <a 
-                // --- 1. LINK UPDATED ---
-                href="#highlights" 
-                className="cursor-target px-6 py-3 text-lg rounded-md bg-gradient-to-r from-green-500 to-green-400 text-black font-semibold shadow-lg hover:scale-[1.02] transition-transform hover:animate-neon-glow"
-              >
-                Register Now
-              </a>
-              <a 
-                // --- 2. LINK AND TEXT UPDATED ---
-                href="/brochure.pdf" // <-- Points to your PDF in the 'public' folder
-                download="Open-Source-Week-Brochure.pdf" // <-- Suggests a filename to the user
-                className="cursor-target px-6 py-3 text-lg rounded-md border border-green-700 text-green-200 hover:bg-green-900/30 transition-colors"
-              >
-                Download Brochure
-              </a>
-            </div>
           </div>
         </div>
 
