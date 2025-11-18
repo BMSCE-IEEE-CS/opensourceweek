@@ -32,7 +32,6 @@ export default function Navbar() {
           >
             About
           </a>
-          {/* <a href="#resources" className="cursor-target text-sm text-neutral-200 hover:text-white transition-colors">Resource persons</a> */}
           <a
             href="#schedule"
             className="cursor-target text-sm text-neutral-200 hover:text-white transition-colors"
@@ -47,7 +46,6 @@ export default function Navbar() {
           </a>
         </nav>
 
-        {/* Mobile menu (simple) */}
         <div className="md:hidden">
           <a
             href="#highlights"

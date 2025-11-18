@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import DotGrid from "@/components/DotGrid";
-import TargetCursor from "@/components/TargetCursor";
 import { Providers } from "./providers";
 import ClientEnvironment from "@/components/Env";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Open Source Week | BMSCE IEEE Computer Society",

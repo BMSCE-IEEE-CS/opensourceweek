@@ -339,13 +339,11 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
       className="fixed top-0 left-0 w-0 h-0 pointer-events-none z-[9999]"
       style={{ willChange: "transform" }}
     >
-      {/* --- THEME FIX: Changed 'bg-white' to 'bg-green-400' --- */}
       <div
         ref={dotRef}
         className="absolute top-1/2 left-1/2 w-1 h-1 bg-green-400 rounded-full -translate-x-1/2 -translate-y-1/2"
         style={{ willChange: "transform" }}
       />
-      {/* --- THEME FIX: Changed 'border-white' to 'border-green-400' --- */}
       <div
         className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[3px] border-green-400 -translate-x-[150%] -translate-y-[150%] border-r-0 border-b-0"
         style={{ willChange: "transform" }}

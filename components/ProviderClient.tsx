@@ -1,0 +1,17 @@
+"use client";
+
+import { client } from "@/lib/client";
+import { ApolloProvider } from "@apollo/client/react";
+import { SessionProvider } from "next-auth/react";
+import { Toaster } from "react-hot-toast";
+
+export function ProvidersClient({ children }: { children: React.ReactNode }) {
+  return (
+    <SessionProvider>
+      <ApolloProvider client={client}>
+        <Toaster position="bottom-center" toastOptions={{ duration: 2000 }} />
+        {children}
+      </ApolloProvider>
+    </SessionProvider>
+  );
+}

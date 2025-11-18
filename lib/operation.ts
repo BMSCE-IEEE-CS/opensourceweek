@@ -1,0 +1,18 @@
+import { gql } from "@apollo/client";
+
+export const SUBMIT_SOLUTION = gql`
+  mutation SubmitSolution(
+    $probName: String!
+    $solLink: String!
+    $liveLink: String
+  ) {
+    submitSolution(
+      probName: $probName
+      solLink: $solLink
+      liveLink: $liveLink
+    ) {
+      id
+      probName
+    }
+  }
+`;

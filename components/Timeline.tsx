@@ -86,19 +86,16 @@ export default function Timeline() {
         </h2>
 
         <div className="relative">
-          {/* Vertical line */}
           <div
             className="absolute left-1/2 transform -translate-x-1/2 w-[2px] bg-green-900/40 h-full top-0 hidden md:block"
             aria-hidden="true"
           ></div>
 
-          {/* Mobile vertical line */}
           <div
             className="absolute left-[9px] w-[2px] bg-green-900/40 h-full top-0 md:hidden"
             aria-hidden="true"
           ></div>
 
-          {/* Animated slider marker (desktop only) */}
           <motion.div
             className="absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-green-400 shadow-lg border-2 border-green-800 hidden md:block"
             aria-hidden="true"
@@ -158,7 +155,6 @@ export default function Timeline() {
                     aria-hidden="true"
                   />
 
-                  {/* --- DESKTOP VIEW --- */}
                   {side === "left" ? (
                     <motion.div
                       className="hidden md:block"
@@ -187,7 +183,6 @@ export default function Timeline() {
                     <div className="hidden md:block"></div>
                   )}
 
-                  {/* --- MOBILE VIEW --- */}
                   <motion.div
                     className="md:hidden flex gap-4 items-start"
                     variants={mobileItemVariants}

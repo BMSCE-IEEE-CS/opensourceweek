@@ -17,7 +17,7 @@ export async function GET() {
     const sheets = google.sheets({ version: "v4", auth });
 
     const spreadsheetId = process.env.GOOGLE_SHEET_ID!;
-    const range = "Sheet1!A:C";
+    const range = "Sheet1!A:D"; // name, github, formlink, active
 
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId,
@@ -29,7 +29,8 @@ export async function GET() {
     const problems = rows.slice(1).map((row) => ({
       name: row[0],
       github: row[1],
-      enabled: String(row[2]).toLowerCase() === "true",
+      formlink: row[2],
+      enabled: String(row[3]).toLowerCase() === "true",
     }));
 
     const visibleProblems = problems.filter((p) => p.enabled);

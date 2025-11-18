@@ -38,7 +38,6 @@ export default function EventHighlights() {
         <h2 className="text-3xl font-extrabold text-white mb-8 text-center">
           Our Events
         </h2>
-        {/* --- Updated grid to md:grid-cols-2 for a 2x2 layout --- */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {highlights.map((h, i) => (
             <EventRegisterModal key={h.title} event={h}>
