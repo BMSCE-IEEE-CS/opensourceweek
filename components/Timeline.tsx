@@ -24,7 +24,7 @@ const TIMELINE: Item[] = [
   {
     id: "agentic",
     title: "Agentic AI Unpacked",
-    time: "20th Nov / 22nd Nov",
+    time: "20th Nov",
     desc: "Dives into the latest in autonomous AI agents.",
     side: "left",
   },
