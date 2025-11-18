@@ -3,9 +3,6 @@ import Image from "next/image";
 import React from "react";
 
 export default function Navbar() {
-  // --- EDIT YOUR WHATSAPP LINK HERE ---
-  const whatsappLink = "https://chat.whatsapp.com/YOUR_GROUP_ID_HERE";
-
   return (
     <header className="sticky top-0 z-50 backdrop-blur-sm bg-black/50 border-b border-green-900/50">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">

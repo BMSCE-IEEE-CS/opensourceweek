@@ -4,9 +4,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-// --- IMPORTANT ---
-// This date MUST match the EVENT_START_ISO in app/layout.tsx
-const EVENT_START = new Date("2025-11-20T09:00:00"); // <- edit this
+const EVENT_START = new Date("2025-11-19T10:00:00");
 
 function pad(n: number) {
   return String(n).padStart(2, "0");
@@ -41,7 +39,7 @@ export default function HeroCountdown() {
               width={720}
               height={180}
               className="mx-auto w-3/4 md:w-full h-auto"
-              priority // Load this image first
+              priority
             />
 
             {isStarted ? (

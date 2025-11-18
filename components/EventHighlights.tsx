@@ -4,7 +4,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { EventRegisterModal } from "./EventRegisterModal";
 
-// Updated highlights array
 const highlights = [
   {
     title: "Contribution Sprint",
@@ -48,10 +47,7 @@ export default function EventHighlights() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ delay: i * 0.06, ease: "easeOut" }}
-                // --- THIS IS THE FIX ---
-                // Added 'hover:bg-radial-glow' to add the inner pattern on hover
                 className="cursor-target p-6 rounded-xl border border-green-900/30 bg-gradient-to-b from-neutral-900/40 to-black/20 h-full transition-all duration-300 hover:scale-[1.03] hover:border-green-400/80 hover:shadow-neon-inner hover:hover:bg-green-900/50"
-                // --- END OF FIX ---
               >
                 <h3 className="text-lg font-semibold text-green-300">
                   {h.title}

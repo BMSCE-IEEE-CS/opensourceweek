@@ -8,11 +8,10 @@ type Item = {
   title: string;
   time: string;
   desc?: string;
-  side: "left" | "right"; // Explicit side
-  children?: Omit<Item, "side" | "children">[]; // Sub-items
+  side: "left" | "right";
+  children?: Omit<Item, "side" | "children">[];
 };
 
-// --- EDIT YOUR SCHEDULE DATA HERE ---
 const TIMELINE: Item[] = [
   {
     id: "sprint",
@@ -53,7 +52,6 @@ export default function Timeline() {
   const itemRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const shouldReduceMotion = useReducedMotion();
 
-  // This effect tracks which item is in the center of the viewport
   useEffect(() => {
     const obs = new IntersectionObserver(
       (entries) => {
@@ -66,7 +64,6 @@ export default function Timeline() {
           }
         });
       },
-      // Triggers when item is in the vertical center 40% of the screen
       { root: null, rootMargin: "-40% 0px -40% 0px", threshold: 0.1 }
     );
 
@@ -75,14 +72,13 @@ export default function Timeline() {
     return () => refs.forEach((el) => el && obs.disconnect());
   }, []);
 
-  // Calculate top position for the animated slider
   const sliderTop = activeIdx * (100 / Math.max(1, TIMELINE.length - 1));
 
   return (
     <section
       id="schedule"
       ref={containerRef}
-      className="py-16 overflow-x-hidden" // Removed bg-black
+      className="py-16 overflow-x-hidden"
     >
       <div className="max-w-4xl mx-auto px-6 relative">
         <h2 className="text-3xl font-extrabold text-white mb-12 text-center">
@@ -174,7 +170,7 @@ export default function Timeline() {
                       <TimelineCard item={item} />
                     </motion.div>
                   ) : (
-                    <div className="hidden md:block"></div> // Spacer
+                    <div className="hidden md:block"></div>
                   )}
 
                   {side === "right" ? (
@@ -188,7 +184,7 @@ export default function Timeline() {
                       <TimelineCard item={item} />
                     </motion.div>
                   ) : (
-                    <div className="hidden md:block"></div> // Spacer
+                    <div className="hidden md:block"></div>
                   )}
 
                   {/* --- MOBILE VIEW --- */}
@@ -217,14 +213,12 @@ export default function Timeline() {
   );
 }
 
-// Helper component for the card content
 const TimelineCard = ({ item }: { item: Item }) => (
   <div className="cursor-target bg-neutral-900/40 border border-green-900/30 p-4 rounded-lg shadow-md">
     <div className="text-base font-semibold text-green-300">{item.title}</div>
     <div className="text-xs text-neutral-400 mt-1">{item.time}</div>
     {item.desc && <p className="text-sm text-neutral-300 mt-2">{item.desc}</p>}
 
-    {/* nested sub-timeline (RepoGenesis) */}
     {item.children && (
       <div className="mt-4">
         <div className="ml-2 border-l-2 border-green-800/50 pl-4 space-y-3">

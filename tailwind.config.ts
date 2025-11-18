@@ -22,7 +22,6 @@ const config: Config = {
         "neon-glow": "neon-glow 2.5s ease-in-out infinite alternate",
       },
 
-      // --- ADDED THIS SECTION ---
       boxShadow: {
         "neon-outer": "0 0 20px theme(colors.green.500/0.5)",
         "neon-inner": "inset 0 0 15px theme(colors.green.500/0.4)",
@@ -31,12 +30,8 @@ const config: Config = {
         "radial-glow":
           "radial-gradient(circle at center, theme(colors.green.800/0.3) 0%, transparent 80%)",
       },
-      // --- END OF NEW SECTION ---
     },
   },
-  plugins: [
-    // This plugin should be installed from your shadcn setup
-    require("tailwindcss-animate"),
-  ],
+  plugins: [require("tailwindcss-animate")],
 };
 export default config;
