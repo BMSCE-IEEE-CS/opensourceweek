@@ -4,7 +4,17 @@ import { prisma } from "@/lib/prisma";
 export const resolvers = {
   Query: {
     users: async () => {
+      const excludeEmail = [
+        "vageeshgn2005@gmail.com",
+        "rishikans2005@gmail.com",
+        "tanishaprakash259@gmail.com",
+      ];
       const data = await prisma.user.findMany({
+        where: {
+          NOT: excludeEmail.length
+            ? { email: { in: excludeEmail } }
+            : undefined,
+        },
         include: {
           solutions: true,
         },
