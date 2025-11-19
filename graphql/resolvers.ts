@@ -1,6 +1,11 @@
 import { auth } from "@/app/auth";
 import { prisma } from "@/lib/prisma";
 
+const toIST = (date: Date) => {
+  const istOffset = 5.5 * 60 * 60 * 1000;
+  return new Date(date.getTime() + istOffset);
+};
+
 export const resolvers = {
   Query: {
     users: async () => {
@@ -9,6 +14,7 @@ export const resolvers = {
         "691d2ac9df0b17d50c195d9e",
         "691d49438d10b4b9375aaac9",
       ];
+
       const data = await prisma.user.findMany({
         where: {
           NOT: excludeIDs.length ? { id: { in: excludeIDs } } : undefined,
@@ -20,16 +26,19 @@ export const resolvers = {
 
       return data.map((user) => ({
         ...user,
-        solutions: user.solutions.map((solution) => ({
-          ...solution,
-          createdAt: new Date(solution.createdAt).toLocaleString("en-IN", {
-            day: "2-digit",
-            month: "short",
-            year: "numeric",
-            hour: "2-digit",
-            minute: "2-digit",
-          }),
-        })),
+        solutions: user.solutions.map((solution) => {
+          const istDate = toIST(solution.createdAt);
+          return {
+            ...solution,
+            createdAt: istDate.toLocaleString("en-IN", {
+              day: "2-digit",
+              month: "short",
+              year: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+            }),
+          };
+        }),
       }));
     },
     user: async (_: unknown, { id }: { id: string }) => {
