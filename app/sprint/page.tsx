@@ -25,6 +25,8 @@ export default function ContributionSprint() {
   const [githubUrl, setGithubUrl] = useState<string>("");
   const [liveUrl, setLiveUrl] = useState<string>("");
 
+  const [showResultsButton, setShowResultsButton] = useState(false);
+
   const [submittedProblems, setSubmittedProblems] = useState<string[]>([]);
 
   const [loadingPrograms, setLoadingPrograms] = useState(true);
@@ -36,6 +38,21 @@ export default function ContributionSprint() {
       liveLink: liveUrl || null,
     },
   });
+
+  useEffect(() => {
+    const checkTime = () => {
+      const now = new Date();
+      const unlockTime = new Date("2025-11-20T04:30:00Z");
+      if (now >= unlockTime) {
+        setShowResultsButton(true);
+      }
+    };
+
+    checkTime();
+
+    const timer = setInterval(checkTime, 60000);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     if (!session?.user) return;
@@ -214,6 +231,14 @@ export default function ContributionSprint() {
             </div>
           </div>
         </div>
+      )}
+      {showResultsButton && (
+        <button
+          onClick={() => (window.location.href = "/sprint/results")}
+          className="bg-green-400 text-black font-semibold px-6 py-3 rounded-xl text-lg shadow-lg hover:bg-green-600 transition cursor-target"
+        >
+          View Results
+        </button>
       )}
     </div>
   );

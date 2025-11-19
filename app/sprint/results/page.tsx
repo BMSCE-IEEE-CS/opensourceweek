@@ -19,7 +19,7 @@ const SprintResults = () => {
       <SprintWinners />
 
       <h1 className="text-2xl md:text-4xl text-green-400 font-bold mt-10">
-        PROJECTS AND USERS
+        PROJECTS
       </h1>
       <SprintProjects />
     </div>
