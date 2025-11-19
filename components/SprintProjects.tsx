@@ -40,23 +40,12 @@ const SprintProjects: React.FC = () => {
     );
 
   return (
-    <div className="flex flex-col items-center justify-center w-full text-white px-4 py-20 space-y-12">
-      <Image
-        className="w-3/4 md:w-1/2"
-        src="/sprintTitle.png"
-        alt="Title"
-        width={600}
-        height={200}
-      />
-      <h1 className="text-2xl md:text-4xl text-green-400 font-bold mt-10">
-        PROJECTS AND USERS
-      </h1>
-
+    <div className="flex flex-col items-center justify-center w-full text-white px-4">
       <div className="flex flex-col space-y-8 w-full max-w-4xl">
         {data?.users.map((user) => (
           <div
             key={user.id}
-            className="bg-gray-900 bg-opacity-50 rounded-xl p-6 flex flex-col space-y-4 shadow-lg"
+            className="bg-gray-800 bg-opacity-50 rounded-xl p-6 flex flex-col space-y-4 shadow-lg"
           >
             <div className="flex items-center space-x-4">
               {user.image && (

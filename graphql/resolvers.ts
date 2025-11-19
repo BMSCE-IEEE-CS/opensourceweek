@@ -4,16 +4,14 @@ import { prisma } from "@/lib/prisma";
 export const resolvers = {
   Query: {
     users: async () => {
-      const excludeEmail = [
-        "vageeshgn2005@gmail.com",
-        "rishikans2005@gmail.com",
-        "tanishaprakash259@gmail.com",
+      const excludeIDs = [
+        "691d06d00d78ea9eff310f85",
+        "691d2ac9df0b17d50c195d9e",
+        "691d49438d10b4b9375aaac9",
       ];
       const data = await prisma.user.findMany({
         where: {
-          NOT: excludeEmail.length
-            ? { email: { in: excludeEmail } }
-            : undefined,
+          NOT: excludeIDs.length ? { id: { in: excludeIDs } } : undefined,
         },
         include: {
           solutions: true,
@@ -33,6 +31,22 @@ export const resolvers = {
           }),
         })),
       }));
+    },
+    user: async (_: unknown, { id }: { id: string }) => {
+      return prisma.user.findUnique({
+        where: { id },
+        include: { solutions: true },
+      });
+    },
+    sprintWinners: async () => {
+      const winnerIds = [
+        "691d06d00d78ea9eff310f85",
+        "691d2ac9df0b17d50c195d9e",
+      ];
+
+      return prisma.user.findMany({
+        where: { id: { in: winnerIds } },
+      });
     },
   },
   Mutation: {
