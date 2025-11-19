@@ -108,7 +108,7 @@ export default function ContributionSprint() {
           Login
         </button>
       ) : (
-        <div className="flex items-center gap-4 mt-10 bg-white/25 p-4 rounded-xl w-1/2 justify-between">
+        <div className="flex items-center gap-4 mt-10 bg-white/25 p-4 rounded-xl max-w-3xl justify-between">
           <div className="flex items-center gap-4">
             <Image
               src={session.user.image ?? "/default-avatar.png"}
