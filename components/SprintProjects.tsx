@@ -85,7 +85,7 @@ const SprintProjects: React.FC = () => {
                       href={solution.solLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-3 py-1 bg-green-500 rounded hover:bg-green-600 text-black transition font-bold"
+                      className="px-3 py-1 bg-green-500 rounded hover:bg-green-600 text-black transition font-bold cursor-target"
                     >
                       Solution
                     </a>
@@ -94,7 +94,7 @@ const SprintProjects: React.FC = () => {
                         href={solution.liveLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-3 py-1 bg-white rounded text-black transition font-bold"
+                        className="px-3 py-1 bg-white rounded text-black transition font-bold cursor-target"
                       >
                         Live
                       </a>
