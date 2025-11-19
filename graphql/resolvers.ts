@@ -2,6 +2,29 @@ import { auth } from "@/app/auth";
 import { prisma } from "@/lib/prisma";
 
 export const resolvers = {
+  Query: {
+    users: async () => {
+      const data = await prisma.user.findMany({
+        include: {
+          solutions: true,
+        },
+      });
+
+      return data.map((user) => ({
+        ...user,
+        solutions: user.solutions.map((solution) => ({
+          ...solution,
+          createdAt: new Date(solution.createdAt).toLocaleString("en-IN", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+          }),
+        })),
+      }));
+    },
+  },
   Mutation: {
     submitSolution: async (
       _: unknown,

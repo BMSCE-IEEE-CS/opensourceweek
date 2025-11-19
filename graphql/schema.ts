@@ -1,12 +1,13 @@
 import { gql } from "graphql-tag";
 
 export const typeDefs = gql`
-  type Mutation {
-    submitSolution(
-      probName: String!
-      solLink: String!
-      liveLink: String
-    ): Solution!
+  type User {
+    id: ID!
+    name: String
+    email: String
+    image: String
+    solutions: [Solution!]!
+    createdAt: String!
   }
 
   type Solution {
@@ -17,7 +18,15 @@ export const typeDefs = gql`
     createdAt: String!
   }
 
+  type Mutation {
+    submitSolution(
+      probName: String!
+      solLink: String!
+      liveLink: String
+    ): Solution!
+  }
+
   type Query {
-    _empty: String
+    users: [User!]!
   }
 `;
