@@ -26,6 +26,8 @@ export default function ContributionSprint() {
 
   const [submittedProblems, setSubmittedProblems] = useState<string[]>([]);
 
+  const [loadingPrograms, setLoadingPrograms] = useState(true);
+
   const [submitSolution] = useMutation(SUBMIT_SOLUTION, {
     variables: {
       probName: selectedProblem,
@@ -46,8 +48,14 @@ export default function ContributionSprint() {
   useEffect(() => {
     fetch("/api/sprint-programs")
       .then((res) => res.json())
-      .then(({ problems }: { problems: Program[] }) => setPrograms(problems))
-      .catch((err) => console.error(err));
+      .then(({ problems }: { problems: Program[] }) => {
+        setPrograms(problems);
+        setLoadingPrograms(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoadingPrograms(false);
+      });
   }, []);
 
   const openModal = (probName: string) => {
@@ -120,37 +128,48 @@ export default function ContributionSprint() {
         </div>
       )}
 
-      <div className="py-16 w-full max-w-3xl flex flex-col gap-6">
-        {programs.map((p, idx) => (
-          <div
-            key={idx}
-            className="bg-white/20 backdrop-blur-sm p-6 rounded-xl border border-white/20 flex items-center justify-between"
-          >
-            <h2 className="text-xl font-semibold">{p.name}</h2>
-
-            <div className="flex gap-4">
-              <button
-                onClick={() => window.open(p.github, "_blank")}
-                className="bg-green-400 text-black px-4 py-2 rounded-lg font-semibold"
-              >
-                GitHub
-              </button>
-              <button
-                onClick={() =>
-                  !submittedProblems.includes(p.name) && openModal(p.name)
-                }
-                disabled={submittedProblems.includes(p.name)}
-                className={`px-4 py-2 rounded-lg font-semibold ${
-                  submittedProblems.includes(p.name)
-                    ? "bg-gray-400 text-black cursor-not-allowed"
-                    : "bg-blue-400 text-black"
-                }`}
-              >
-                {submittedProblems.includes(p.name) ? "Submitted" : "Submit"}
-              </button>
-            </div>
+      <div className="my-16 w-full max-w-3xl flex flex-col gap-6">
+        {loadingPrograms ? (
+          <div className="flex flex-col gap-4">
+            {[...Array(3)].map((_, idx) => (
+              <div
+                key={idx}
+                className="h-20 bg-white/10 animate-pulse rounded-xl"
+              ></div>
+            ))}
           </div>
-        ))}
+        ) : (
+          programs.map((p, idx) => (
+            <div
+              key={idx}
+              className="bg-white/20 backdrop-blur-sm p-6 rounded-xl border border-white/20 flex items-center justify-between"
+            >
+              <h2 className="text-xl font-semibold">{p.name}</h2>
+
+              <div className="flex gap-4">
+                <button
+                  onClick={() => window.open(p.github, "_blank")}
+                  className="bg-green-400 text-black px-4 py-2 rounded-lg font-semibold"
+                >
+                  GitHub
+                </button>
+                <button
+                  onClick={() =>
+                    !submittedProblems.includes(p.name) && openModal(p.name)
+                  }
+                  disabled={submittedProblems.includes(p.name)}
+                  className={`px-4 py-2 rounded-lg font-semibold ${
+                    submittedProblems.includes(p.name)
+                      ? "bg-gray-400 text-black cursor-not-allowed"
+                      : "bg-blue-400 text-black"
+                  }`}
+                >
+                  {submittedProblems.includes(p.name) ? "Submitted" : "Submit"}
+                </button>
+              </div>
+            </div>
+          ))
+        )}
       </div>
 
       {showModal && (
