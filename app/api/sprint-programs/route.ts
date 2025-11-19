@@ -17,7 +17,7 @@ export async function GET() {
     const sheets = google.sheets({ version: "v4", auth });
 
     const spreadsheetId = process.env.GOOGLE_SHEET_ID!;
-    const range = "Sheet1!A:D"; // name, github, formlink, active
+    const range = "Sheet1!A:D";
 
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId,

@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 export const resolvers = {
   Mutation: {
     submitSolution: async (
-      _: any,
+      _: unknown,
       {
         probName,
         solLink,
@@ -12,7 +12,6 @@ export const resolvers = {
       }: { probName: string; solLink: string; liveLink?: string }
     ) => {
       const session = await auth();
-
       if (!session?.user?.email) throw new Error("Not authenticated");
 
       const user = await prisma.user.findUnique({
@@ -20,6 +19,18 @@ export const resolvers = {
       });
 
       if (!user) throw new Error("User not found");
+
+      const existing = await prisma.solution.findFirst({
+        where: {
+          userId: user.id,
+          probName,
+        },
+      });
+
+      if (existing) {
+        throw new Error("You have already submitted this problem");
+      }
+
       return prisma.solution.create({
         data: {
           probName,

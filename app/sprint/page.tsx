@@ -7,20 +7,47 @@ import { useMutation } from "@apollo/client/react";
 import { SUBMIT_SOLUTION } from "@/lib/operation";
 import toast from "react-hot-toast";
 
+interface Program {
+  name: string;
+  github: string;
+}
+
+interface SubmitResponse {
+  submissions: string[];
+}
+
 export default function ContributionSprint() {
   const { data: session, status } = useSession();
-  const [programs, setPrograms] = useState([]);
+  const [programs, setPrograms] = useState<Program[]>([]);
   const [showModal, setShowModal] = useState(false);
-  const [selectedProblem, setSelectedProblem] = useState("");
-  const [githubUrl, setGithubUrl] = useState("");
-  const [liveUrl, setLiveUrl] = useState("");
+  const [selectedProblem, setSelectedProblem] = useState<string>("");
+  const [githubUrl, setGithubUrl] = useState<string>("");
+  const [liveUrl, setLiveUrl] = useState<string>("");
 
-  const [submitSolution] = useMutation(SUBMIT_SOLUTION);
+  const [submittedProblems, setSubmittedProblems] = useState<string[]>([]);
+
+  const [submitSolution] = useMutation(SUBMIT_SOLUTION, {
+    variables: {
+      probName: selectedProblem,
+      solLink: githubUrl,
+      liveLink: liveUrl || null,
+    },
+  });
+
+  useEffect(() => {
+    if (!session?.user) return;
+
+    fetch("/api/submit")
+      .then((res) => res.json())
+      .then((data: SubmitResponse) => setSubmittedProblems(data.submissions))
+      .catch((err) => console.error(err));
+  }, [session]);
 
   useEffect(() => {
     fetch("/api/sprint-programs")
       .then((res) => res.json())
-      .then(({ problems }) => setPrograms(problems));
+      .then(({ problems }: { problems: Program[] }) => setPrograms(problems))
+      .catch((err) => console.error(err));
   }, []);
 
   const openModal = (probName: string) => {
@@ -36,16 +63,26 @@ export default function ContributionSprint() {
       return;
     }
 
-    await submitSolution({
-      variables: {
-        probName: selectedProblem,
-        solLink: githubUrl,
-        liveLink: liveUrl || null,
-      },
-    });
+    try {
+      await submitSolution({
+        variables: {
+          probName: selectedProblem,
+          solLink: githubUrl,
+          liveLink: liveUrl || null,
+        },
+      });
 
-    toast.success("Submitted Successfully");
-    setShowModal(false);
+      toast.success("Submitted Successfully");
+
+      setShowModal(false);
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    } catch (err) {
+      console.error(err);
+      toast.error("Submission failed!");
+    }
   };
 
   return (
@@ -83,11 +120,11 @@ export default function ContributionSprint() {
         </div>
       )}
 
-      <div className="mt-16 w-full max-w-3xl flex flex-col gap-6">
+      <div className="py-16 w-full max-w-3xl flex flex-col gap-6">
         {programs.map((p, idx) => (
           <div
             key={idx}
-            className="bg-white/20 p-6 rounded-xl border border-white/20 flex items-center justify-between"
+            className="bg-white/20 backdrop-blur-sm p-6 rounded-xl border border-white/20 flex items-center justify-between"
           >
             <h2 className="text-xl font-semibold">{p.name}</h2>
 
@@ -98,12 +135,18 @@ export default function ContributionSprint() {
               >
                 GitHub
               </button>
-
               <button
-                onClick={() => openModal(p.name)}
-                className="bg-blue-400 text-black px-4 py-2 rounded-lg font-semibold"
+                onClick={() =>
+                  !submittedProblems.includes(p.name) && openModal(p.name)
+                }
+                disabled={submittedProblems.includes(p.name)}
+                className={`px-4 py-2 rounded-lg font-semibold ${
+                  submittedProblems.includes(p.name)
+                    ? "bg-gray-400 text-black cursor-not-allowed"
+                    : "bg-blue-400 text-black"
+                }`}
               >
-                Submit
+                {submittedProblems.includes(p.name) ? "Submitted" : "Submit"}
               </button>
             </div>
           </div>
@@ -111,7 +154,7 @@ export default function ContributionSprint() {
       </div>
 
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+        <div className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm p-2">
           <div className="bg-white text-black p-8 rounded-xl w-96 shadow-xl flex flex-col gap-4">
             <h2 className="text-2xl font-bold text-center">Submit Solution</h2>
             <p className="text-gray-600 text-center mb-4">
