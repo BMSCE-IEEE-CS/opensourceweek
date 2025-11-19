@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useMutation } from "@apollo/client/react";
 import { SUBMIT_SOLUTION } from "@/lib/operation";
 import toast from "react-hot-toast";
+import { FaGithub } from "react-icons/fa6";
 
 interface Program {
   name: string;
@@ -94,7 +95,7 @@ export default function ContributionSprint() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-white px-4">
+    <div className="flex flex-col items-center justify-center min-h-screen text-white px-4 py-20">
       <Image src="/sprintTitle.png" alt="Title" width={600} height={200} />
 
       {status === "loading" ? (
@@ -111,17 +112,17 @@ export default function ContributionSprint() {
           <div className="flex items-center gap-4">
             <Image
               src={session.user.image ?? "/default-avatar.png"}
-              width={64}
-              height={64}
+              width={48}
+              height={48}
               alt={session.user.name ?? "User"}
               className="rounded-full border-2 border-white"
             />
-            <h1 className="text-xl">{session.user.name}</h1>
+            <h1 className="text-base md:text-xl">{session.user.name}</h1>
           </div>
 
           <button
             onClick={() => signOut()}
-            className="bg-red-400 text-black font-semibold px-4 py-2 rounded-lg"
+            className="bg-red-400 text-black font-semibold px-4 py-2 rounded-lg text-base md:text-xl"
           >
             Logout
           </button>
@@ -144,14 +145,14 @@ export default function ContributionSprint() {
               key={idx}
               className="bg-white/20 backdrop-blur-sm p-6 rounded-xl border border-white/20 flex items-center justify-between"
             >
-              <h2 className="text-xl font-semibold">{p.name}</h2>
+              <h2 className="text-lg md:text-xl font-semibold">{p.name}</h2>
 
               <div className="flex gap-4">
                 <button
                   onClick={() => window.open(p.github, "_blank")}
-                  className="bg-green-400 text-black px-4 py-2 rounded-lg font-semibold"
+                  className="bg-green-400 text-black px-4 py-2 rounded-lg font-semibold text-base md:text-xl"
                 >
-                  GitHub
+                  <FaGithub size={24} />
                 </button>
                 <button
                   onClick={() =>
@@ -161,7 +162,7 @@ export default function ContributionSprint() {
                   className={`px-4 py-2 rounded-lg font-semibold ${
                     submittedProblems.includes(p.name)
                       ? "bg-gray-400 text-black cursor-not-allowed"
-                      : "bg-blue-400 text-black"
+                      : "bg-white text-black"
                   }`}
                 >
                   {submittedProblems.includes(p.name) ? "Submitted" : "Submit"}
@@ -185,7 +186,7 @@ export default function ContributionSprint() {
               placeholder="GitHub URL (required)"
               value={githubUrl}
               onChange={(e) => setGithubUrl(e.target.value)}
-              className="border p-2 rounded-lg w-full"
+              className="border border-gray-400 p-2 rounded-lg w-full"
             />
 
             <input
@@ -193,13 +194,13 @@ export default function ContributionSprint() {
               placeholder="Live URL (optional)"
               value={liveUrl}
               onChange={(e) => setLiveUrl(e.target.value)}
-              className="border p-2 rounded-lg w-full"
+              className="border border-gray-400 p-2 rounded-lg w-full"
             />
 
             <div className="flex justify-end gap-4 mt-4">
               <button
                 onClick={() => setShowModal(false)}
-                className="px-4 py-2 rounded-lg bg-gray-200"
+                className="px-4 py-2 rounded-lg bg-gray-300"
               >
                 Cancel
               </button>
