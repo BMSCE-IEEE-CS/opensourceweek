@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const SprintResults = () => {
   return (
-    <div className="flex flex-col items-center justify-center w-full text-white px-4 py-20 space-y-12">
+    <div className="flex flex-col items-center justify-center w-full text-white py-20 space-y-12">
       <Image
         className="w-3/4 md:w-1/2"
         src="/sprintTitle.png"
