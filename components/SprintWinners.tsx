@@ -4,8 +4,8 @@ import { Trophy } from "lucide-react";
 
 export default function SprintWinners() {
   const winners = [
-    { name: "Winner One", trophyColor: "text-yellow-400" },
-    { name: "Winner Two", trophyColor: "text-gray-300" },
+    { name: "Adwika Vishal", trophyColor: "text-yellow-400" },
+    { name: "Harshith M", trophyColor: "text-gray-300" },
   ];
 
   return (
