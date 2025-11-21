@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface Team {
@@ -30,13 +31,43 @@ export default function TeamsPage() {
     <div className="min-h-screen text-white flex flex-col items-center py-16 px-4">
       <Image src="/RGtitle.png" alt="Title" width={600} height={200} />
 
-      <h1 className="p-6 bg-yellow-500/60 rounded-2xl text-xl italic mt-4 text-center">
+      {/* <h1 className="p-6 bg-yellow-500/60 rounded-2xl text-xl italic mt-4 text-center">
         Teams will be working on their own problem statments understand their
         chosen track.
+      </h1> */}
+
+      <h1 className="text-3xl md:text-4xl font-bold mt-10 text-center">
+        Template Repositories
       </h1>
-      <h1 className="text-3xl md:text-5xl font-bold mt-10 text-center">
-        Registered Teams
-      </h1>
+      <div className="flex flex-col md:flex-row gap-5 items-center justify-center w-full md:w-4/5 mt-10">
+        <Link
+          target="_blank"
+          className="bg-white/50 w-full p-6 rounded-2xl text-white text-center font-bold text-xl cursor-target hover:bg-white/40 transition-all duration-200"
+          href="https://github.com/BMSCE-IEEE-CS/repogenesis-open-innovation"
+        >
+          Open Innovation
+        </Link>
+        <Link
+          target="_blank"
+          className="bg-green-500/60 w-full p-6 rounded-2xl text-white text-center font-bold text-xl cursor-target hover:bg-green-500/40 transition-all duration-200"
+          href="https://github.com/BMSCE-IEEE-CS/repogenesis-healthcare"
+        >
+          HealthCare
+        </Link>
+        <Link
+          target="_blank"
+          className="bg-yellow-500/60 w-full p-6 rounded-2xl text-white text-center font-bold text-xl cursor-target hover:bg-yellow-500/40 transition-all duration-200"
+          href="https://github.com/BMSCE-IEEE-CS/repogenesis-fintech"
+        >
+          FinTech
+        </Link>
+      </div>
+      <Link
+        className="bg-red-500/60 hover:bg-red-500/40 w-full md:w-4/5 p-6 rounded-2xl mt-5 text-center font-bold text-xl cursor-target"
+        href="/repogenesis_guide.pdf"
+      >
+        Guide
+      </Link>
 
       {loading ? (
         <p>Loading teams...</p>
@@ -52,7 +83,7 @@ export default function TeamsPage() {
                 .map((team, idx) => (
                   <div
                     key={idx}
-                    className="flex flex-col items-center justify-between p-2 rounded-xl shadow-lg w-full text-black bg-white/80"
+                    className="flex flex-col items-center justify-between p-4 rounded-xl shadow-lg w-full text-black bg-white/80"
                   >
                     <h1 className="text-2xl md:text-3xl font-bold">
                       {team.name}
@@ -73,7 +104,7 @@ export default function TeamsPage() {
                 .map((team, idx) => (
                   <div
                     key={idx}
-                    className="flex flex-col items-center justify-between p-2 rounded-xl shadow-lg w-full text-black bg-green-400/80"
+                    className="flex flex-col items-center justify-between p-4 rounded-xl shadow-lg w-full text-black bg-green-400/80"
                   >
                     <h1 className="text-2xl md:text-3xl font-bold">
                       {team.name}
@@ -94,7 +125,7 @@ export default function TeamsPage() {
                 .map((team, idx) => (
                   <div
                     key={idx}
-                    className="flex flex-col items-center justify-between p-2 rounded-xl shadow-lg w-full text-black bg-yellow-500/80"
+                    className="flex flex-col items-center justify-between p-4 rounded-xl shadow-lg w-full text-black bg-yellow-500/80"
                   >
                     <h1 className="text-2xl md:text-3xl font-bold">
                       {team.name}
