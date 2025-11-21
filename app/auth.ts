@@ -4,7 +4,6 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  adapter: PrismaAdapter(prisma),
   providers: [
     GitHub({
       clientId:
@@ -17,4 +16,20 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           : process.env.AUTH_GITHUB_LOCAL_SECRET!,
     }),
   ],
+  adapter: PrismaAdapter(prisma),
+  callbacks: {
+    async session({ session, user }) {
+      if (session.user) {
+        session.user.id = user.id;
+
+        const dbUser = await prisma.user.findUnique({
+          where: { id: user.id },
+          select: { role: true },
+        });
+
+        session.user.role = dbUser?.role ?? [];
+      }
+      return session;
+    },
+  },
 });
