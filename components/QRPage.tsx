@@ -1,12 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { QRCodeCanvas } from "qrcode.react";
 import { supabase } from "@/lib/supabase";
 
 export default function QRPage({ uid }: { uid: string }) {
   const [participant, setParticipant] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+
+  const qrRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -49,7 +51,7 @@ export default function QRPage({ uid }: { uid: string }) {
       <h1 className="text-3xl font-semibold mb-4">Your QR Code</h1>
 
       <div className="bg-white p-4 rounded-lg shadow mx-auto inline-block">
-        <QRCodeCanvas value={qrValue} size={220} />
+        <QRCodeCanvas ref={qrRef} value={qrValue} size={220} />
       </div>
 
       <p className="mt-4 text-lg font-semibold">{participant.name}</p>
@@ -61,8 +63,8 @@ export default function QRPage({ uid }: { uid: string }) {
       <button
         className="mt-6 bg-black text-white px-4 py-2 rounded"
         onClick={() => {
-          const canvas = document.querySelector("canvas") as HTMLCanvasElement;
-          const pngUrl = canvas.toDataURL("image/png");
+          if (!qrRef.current) return;
+          const pngUrl = qrRef.current.toDataURL("image/png");
           const link = document.createElement("a");
           link.href = pngUrl;
           link.download = `${uid}.png`;
