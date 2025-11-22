@@ -17,22 +17,32 @@ export default function ReuseScan({ scanType, scannerId }: ScannerProps) {
     type: "idle",
   });
   const [lastUid, setLastUid] = useState<string | null>(null);
+  const [cooldown, setCooldown] = useState(false);
 
   function extractUid(payload: string) {
+    if (!payload) return "";
+
+    payload = payload.trim().replace(/\s+/g, "");
+
     try {
       const url = new URL(payload);
       const id = url.searchParams.get("id");
-      if (id) return id;
-    } catch (e) {}
+      if (id) return id.trim();
+    } catch (_) {}
+
     return payload;
   }
 
   async function handleDecode(decodedObj: any) {
+    if (cooldown) return;
+    setCooldown(true);
+    setTimeout(() => setCooldown(false), 1500);
+
     if (!decodedObj) return;
     const raw = decodedObj.rawValue;
     if (!raw) return;
 
-    const uid = extractUid(raw.trim());
+    const uid = extractUid(raw);
     setScanned(uid);
 
     if (uid === lastUid) return;
