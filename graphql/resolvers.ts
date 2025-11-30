@@ -10,9 +10,16 @@ export const resolvers = {
   Query: {
     users: async () => {
       const excludeIDs = [
-        "691d06d00d78ea9eff310f85",
-        "691d2ac9df0b17d50c195d9e",
-        "691d49438d10b4b9375aaac9",
+        "692018e1e08636dbecefd98f",
+        "69201ba7f38d81b7ab7e9fb9",
+        "69202bcbe0428cc824c0a4a4",
+        "69202bf80696d4e20b1e7427",
+        "69202d000696d4e20b1e742a",
+        "69202e36ce96c30f7a9e161e",
+        "692046f70696d4e20b1e742e",
+        "69204065ce96c30f7a9e1631",
+        "6920405cce96c30f7a9e162e",
+        "69204055ce96c30f7a9e162b",
       ];
 
       const data = await prisma.user.findMany({
