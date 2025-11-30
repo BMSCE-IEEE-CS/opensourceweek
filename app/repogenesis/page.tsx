@@ -93,9 +93,9 @@ export default function TeamsPage() {
         <p>Loading projects...</p>
       ) : (
         <div className="flex flex-col w-full md:w-4/5">
-          <h1 className="text-2xl md:text-3xl font-bold mt-10 mb-6 text-center">
+          {/* <h1 className="text-2xl md:text-3xl font-bold mt-10 mb-6 text-center">
             Projects
-          </h1>
+          </h1> */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {projects.map((project, idx) => (
               <div
