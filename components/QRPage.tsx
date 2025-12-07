@@ -80,18 +80,18 @@ export default function QRPage({ uid }: { uid: string }) {
         <div className="flex justify-between text-lg">
           <span>Attendance:</span> {status(participant.attendance_marked)}
         </div>
-        <div className="flex justify-between text-lg">
+        {/* <div className="flex justify-between text-lg">
           <span>Entry:</span> {status(participant.entry_marked)}
-        </div>
+        </div> */}
         <div className="flex justify-between text-lg">
           <span>Breakfast:</span> {status(participant.breakfast)}
         </div>
-        <div className="flex justify-between text-lg">
+        {/* <div className="flex justify-between text-lg">
           <span>Lunch:</span> {status(participant.lunch)}
         </div>
         <div className="flex justify-between text-lg">
           <span>Dinner:</span> {status(participant.dinner)}
-        </div>
+        </div> */}
       </div>
 
       <p className="mt-6 text-gray-300 text-sm text-center">
